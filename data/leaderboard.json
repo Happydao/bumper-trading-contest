@@ -1,6 +1,6 @@
 {
   "updated_at": "2025-08-29T22:48:07.697Z",
-  "updated_at_it": "30/08/2025 00:48:07 Europe/Rome",
+  "updated_at_it": "29/08/2025 22:45:07 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
@@ -10,20 +10,20 @@
   },
   "wallets": [
     {
-      "address": "F1Hh...gZHs",
+      "address": "Hyth...gZur",
       "buy": 3153.418875,
       "sell": 2000,
       "volume": 5153.418874999999,
       "trades": 10,
-      "last_tx_iso": "2025-08-29T22:29:56.000Z"
+      "last_tx_iso": "2025-08-29T22:23:56.000Z"
     },
     {
-      "address": "EGJj...Qirj",
+      "address": "Io7u...oP9i",
       "buy": 1577.692833,
       "sell": 2281.464505,
       "volume": 3859.157338,
       "trades": 6,
-      "last_tx_iso": "2025-08-29T22:34:43.000Z"
+      "last_tx_iso": "2025-08-29T22:38:43.000Z"
     }
   ]
 }
