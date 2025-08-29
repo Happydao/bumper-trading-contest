@@ -1,5 +1,13 @@
 {
-  "run_at_iso": "2025-08-29T21:49:01.637Z",
-  "events_count": 0,
-  "events": []
+  "run_at_iso": "2025-08-29T21:53:58.495Z",
+  "events_count": 1,
+  "events": [
+    {
+      "type": "SELL",
+      "wallet": "F1Hhn4vx7NxZ33ck9qYJqHs4WGmadPz9CUfma6afgZHs",
+      "amount": 300,
+      "tx": "boEfp6AjPMS5F1XHkpbRPhS69BdQCtyNLSQn55L3ejspqavBVHWQrvxrmkdR1rTC8PLmY26h9TMsMpToNBHPYto",
+      "ts_iso": "2025-08-29T21:49:18.000Z"
+    }
+  ]
 }
