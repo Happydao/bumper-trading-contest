@@ -3,121 +3,135 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>$BUMPER — Volume Trading Dashboard</title>
+  <title>$BUMPER volume trading competiton</title>
   <meta name="color-scheme" content="dark light">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0b10;
-      --panel:#12131b;
-      --muted:#8b90a4;
-      --fg:#e6e9f5;
-      --accent:#6cf5a8;      /* neo green */
-      --accent2:#7aa2ff;     /* electric blue */
-      --danger:#ff5d7a;      /* hot pink/red */
+      --bg:#0a0609;           /* dark red-black */
+      --panel:#130e12;        /* deep panel */
+      --muted:#9a90a4;
+      --fg:#f2eaf2;
+      --accent:#ff375f;       /* neon red */
+      --accent2:#ff7a59;      /* hot orange */
+      --buy:#20e3a2;          /* green for BUY */
+      --sell:#ff5d7a;         /* red for SELL */
       --gold:#ffd166;
       --silver:#cbd5e1;
       --bronze:#f4a261;
-      --ring: rgba(108,245,168,.25);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
-      background: radial-gradient(1200px 600px at 20% -10%, rgba(124, 58, 237,.15), transparent 60%),
-                  radial-gradient(800px 500px at 80% 10%, rgba(32, 211, 161,.12), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1100px 600px at 20% -10%, rgba(255,55,95,.15), transparent 60%),
+        radial-gradient(900px 500px at 80% 8%, rgba(255,122,89,.12), transparent 60%),
+        linear-gradient(180deg, rgba(255,55,95,.06), transparent 40%),
+        var(--bg);
       color:var(--fg);
     }
-    a{color:var(--accent2); text-decoration:none}
+    a{color:#9bb5ff; text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:1200px; margin:0 auto; padding:24px}
+    .wrap{max-width:1200px; margin:0 auto; padding:20px}
     header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px;
     }
-    .brand{
-      display:flex; align-items:center; gap:14px;
-    }
+    .brand{display:flex; align-items:center; gap:14px}
     .logo{
-      width:42px; height:42px; border-radius:12px;
-      background: conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent2), var(--accent));
-      box-shadow: 0 0 0 8px rgba(124,58,237,.08), 0 6px 28px rgba(0,0,0,.35);
+      width:44px; height:44px; border-radius:12px;
+      background: conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent2) 40%, var(--accent) 80%);
+      box-shadow: 0 0 0 8px rgba(255,55,95,.08), 0 6px 28px rgba(0,0,0,.35);
     }
     h1{font-size:20px; margin:0; letter-spacing:.2px}
     .sub{color:var(--muted); font-size:13px}
-    .controls{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
-    .btn{
-      border:1px solid rgba(255,255,255,.08); background:#161823; color:#fff;
-      padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
-      transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
-    .btn:active{transform:translateY(0)}
     .pill{
       padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#fff; font-size:12px;
       border:1px solid rgba(255,255,255,.08);
     }
-    .grid{
-      display:grid; grid-template-columns: 1.3fr .9fr; gap:16px;
+    .btn{
+      border:1px solid rgba(255,255,255,.08); background:#1a1116; color:#fff;
+      padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
+      transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
     }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
+    .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
     @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+
+    .hero{
+      position:relative; border-radius:16px; overflow:hidden; margin:10px 0 18px;
+      border:1px solid rgba(255,255,255,.08);
+      background: #140b0f;
+      min-height: 180px;
+    }
+    .hero::before{
+      /* image cover */
+      content:""; position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,5,7,.0), rgba(10,5,7,.55) 65%, rgba(10,5,7,.85)),
+        url('./bumpertrading.png') center/cover no-repeat;
+      filter: saturate(1.05) contrast(1.02) brightness(.98);
+    }
+    .hero h2{
+      position:absolute; left:18px; bottom:16px; margin:0;
+      font-size:22px; letter-spacing:.4px; text-shadow:0 8px 28px rgba(0,0,0,.75);
+    }
+
     .panel{
       background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
       border:1px solid rgba(255,255,255,.08);
       border-radius:16px; padding:16px;
       box-shadow: 0 4px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.02);
     }
-    .panel h2{
+    .panel h3{
       margin:0 0 12px 0; font-size:16px; letter-spacing:.2px;
       display:flex; align-items:center; justify-content:space-between; gap:12px;
     }
     .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:10px;}
     @media (max-width: 700px){ .cards{ grid-template-columns:1fr; } }
-    .card{
-      background: #10121a; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px;
-    }
+    .card{ background:#110a0e; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px; }
     .k{font-size:12px; color:var(--muted); margin-bottom:4px}
     .v{font-size:22px; font-weight:800}
+
     .leader{
-      border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06);
-      max-height: 56vh;
+      border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06); max-height: 56vh;
     }
     table{width:100%; border-collapse:collapse; font-size:14px}
     thead th{
-      position:sticky; top:0; background:#0f1119; z-index:1;
-      padding:10px; text-align:left; font-weight:700; letter-spacing:.2px; border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; background:#160c10; z-index:1;
+      padding:10px; text-align:left; font-weight:800; letter-spacing:.2px; border-bottom:1px solid rgba(255,255,255,.08);
       cursor:pointer; user-select:none;
     }
     tbody td{ padding:10px; border-bottom:1px dashed rgba(255,255,255,.06); }
-    tbody tr:hover{ background: rgba(108,245,168,.05); }
-    .rank{width:52px; font-weight:800}
+    tbody tr:hover{ background: rgba(255,55,95,.06); }
+    .rank{width:86px; font-weight:800; white-space:nowrap}
+    .pos{margin-right:6px}
     .addr{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
     .badge{
       font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px;
       border:1px solid rgba(255,255,255,.12);
     }
-    .buy{ color:#0eea93; background: rgba(14,234,147,.08); }
-    .sell{ color:#ff6a85; background: rgba(255,106,133,.08); border-color: rgba(255,106,133,.24); }
-    .st{ color:#9aa3c1; }
+    .buy{ color:var(--buy); background: rgba(32,227,162,.10); }
+    .sell{ color:var(--sell); background: rgba(255,93,122,.12); border-color: rgba(255,93,122,.24); }
+    .st{ color:#b7b1c5; }
     .trophy{ font-size:18px }
-    .r1 .rank .trophy{ color: var(--gold) }
-    .r2 .rank .trophy{ color: var(--silver) }
-    .r3 .rank .trophy{ color: var(--bronze) }
+    .r1 .trophy{ color: var(--gold) }
+    .r2 .trophy{ color: var(--silver) }
+    .r3 .trophy{ color: var(--bronze) }
+
     .feed{
       display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px;
       border:1px solid rgba(255,255,255,.06); padding:10px;
     }
     .ev{
-      display:flex; align-items:center; gap:10px; background:#0f1119; border:1px solid rgba(255,255,255,.08);
+      display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid rgba(255,255,255,.08);
       padding:10px; border-radius:12px;
     }
     .ev .time{ color:var(--muted); font-size:12px; min-width:110px }
     .ev .tx{ margin-left:auto; font-size:12px }
     .muted{ color:var(--muted) }
     .foot{ margin-top:14px; color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center }
-    .warn{ color:var(--danger) }
-    .ok{ color:var(--accent) }
     .sep{ opacity:.22 }
     .small{ font-size:12px }
     .spinner{
@@ -126,7 +140,7 @@
     }
     @keyframes spin{ to { transform: rotate(360deg) } }
     .toast{
-      position: fixed; right: 16px; bottom: 16px; background: #151826; border:1px solid rgba(255,255,255,.12);
+      position: fixed; right: 16px; bottom: 16px; background: #150c10; border:1px solid rgba(255,255,255,.12);
       padding:10px 12px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); max-width: 320px;
     }
     .hidden{ display:none }
@@ -139,7 +153,7 @@
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>$BUMPER — Volume Trading Dashboard</h1>
+          <h1>$BUMPER volume trading competiton</h1>
           <div class="sub">
             <span id="updated">Updated: —</span>
             <span class="sep">·</span>
@@ -155,13 +169,18 @@
       </div>
     </header>
 
+    <!-- HERO with image -->
+    <div class="hero">
+      <h2>$BUMPER cumulative leaderboard · live feed</h2>
+    </div>
+
     <div class="grid">
       <!-- Leaderboard -->
       <section class="panel">
-        <h2>
+        <h3>
           Leaderboard (cumulative)
           <span class="muted small">click headers to sort</span>
-        </h2>
+        </h3>
 
         <div class="cards">
           <div class="card">
@@ -182,7 +201,7 @@
           <table id="tbl">
             <thead>
               <tr>
-                <th data-sort="rank" style="width:64px">#</th>
+                <th data-sort="rank" style="width:86px">Rank</th>
                 <th data-sort="address">Wallet</th>
                 <th class="right" data-sort="buy">Buy</th>
                 <th class="right" data-sort="sell">Sell</th>
@@ -191,9 +210,7 @@
                 <th data-sort="last">Last Tx (UTC)</th>
               </tr>
             </thead>
-            <tbody id="tbody">
-              <!-- rows -->
-            </tbody>
+            <tbody id="tbody"></tbody>
           </table>
         </div>
         <div class="foot">
@@ -206,13 +223,11 @@
 
       <!-- Latest events feed -->
       <section class="panel">
-        <h2>
+        <h3>
           Latest Trades (last ~1h)
           <span class="muted small">from <code>latest_events.json</code></span>
-        </h2>
-        <div class="feed" id="feed">
-          <!-- events -->
-        </div>
+        </h3>
+        <div class="feed" id="feed"></div>
         <div class="foot">
           <span>Data source:</span>
           <a id="ev-link" target="_blank" rel="noopener">latest_events.json</a>
@@ -229,29 +244,25 @@
 
   <script>
     // ====== CONFIG ======
-    // If you host this file elsewhere, set window.DATA_BASE before this script, or change here:
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
-    const REFRESH_SECONDS = 60;  // auto refresh cadence (UI-side)
-    const LOCAL_BUFFER_MIN = 60; // keep events in local buffer (minutes)
-    const LS_KEY = 'bumper_events_buffer_v1';
+    const REFRESH_SECONDS = 60;    // UI refresh; non fa alcun commit su GitHub
+    const LOCAL_BUFFER_MIN = 60;   // keep events in local buffer (minutes)
+    const LS_KEY = 'bumper_events_buffer_v2';
 
     // ====== DOM ======
     const elUpdated = document.getElementById('updated');
     const elTZ = document.getElementById('tz');
     const elRefreshIn = document.getElementById('refresh-in');
     const elStatus = document.getElementById('status-pill');
-
     const elTotVol = document.getElementById('tot-volume');
     const elTotBuy = document.getElementById('tot-buy');
     const elTotSell = document.getElementById('tot-sell');
     const elLbCount = document.getElementById('lb-count');
     const elLbLink = document.getElementById('lb-link');
     const elEvLink = document.getElementById('ev-link');
-
     const elTBody = document.getElementById('tbody');
     const elFeed = document.getElementById('feed');
     const toast = document.getElementById('toast');
-
     const btnRefresh = document.getElementById('btn-refresh');
     const btnClearCache = document.getElementById('clear-cache');
 
@@ -261,8 +272,10 @@
     let countdownTimer = null;
 
     // ====== Utils ======
-    const $ = sel => document.querySelector(sel);
-    const fmt = (n) => (typeof n === 'number' ? n : Number(n || 0)).toLocaleString('en-US', { maximumFractionDigits: 6 });
+    const fmtInt = (n) => {
+      const v = Math.floor(Number(n || 0));
+      return v.toLocaleString('en-US');
+    };
     const ago = (iso) => {
       const d = new Date(iso);
       const sec = Math.max(0, Math.round((Date.now() - d.getTime())/1000));
@@ -270,15 +283,15 @@
       const m = Math.round(sec/60); if (m < 60) return `${m}m ago`;
       const h = Math.round(m/60); return `${h}h ago`;
     };
-    const mask = (addr) => addr; // already masked by backend; left here if you change later
+    const mask = (addr) => addr; // already masked by backend
 
     function linkSolscan(tx){ return `https://solscan.io/tx/${tx}`; }
 
     function showToast(msg, ok=false){
       toast.textContent = msg;
       toast.classList.remove('hidden');
-      toast.style.borderColor = ok ? 'rgba(108,245,168,.4)' : 'rgba(255,106,133,.4)';
-      toast.style.color = ok ? 'var(--accent)' : 'var(--danger)';
+      toast.style.border = ok ? '1px solid rgba(32,227,162,.35)' : '1px solid rgba(255,93,122,.35)';
+      toast.style.color = ok ? 'var(--buy)' : 'var(--sell)';
       clearTimeout(showToast._t);
       showToast._t = setTimeout(()=> toast.classList.add('hidden'), 4000);
     }
@@ -311,8 +324,9 @@
 
     // ====== Leaderboard render ======
     function renderLeaderboard(data){
+      window._lastLeaderboard = data;
       const wallets = (data.wallets || []).slice();
-      // sort
+
       wallets.sort((a,b)=>{
         const fa = getField(a, sortField);
         const fb = getField(b, sortField);
@@ -322,16 +336,18 @@
 
       elTBody.innerHTML = '';
       wallets.forEach((w,i)=>{
+        const posStr = `${i+1}°`;
+        const trophy = i<3 ? `<span class="trophy">🏆</span>` : '';
         const tr = document.createElement('tr');
         if (i===0) tr.classList.add('r1');
         if (i===1) tr.classList.add('r2');
         if (i===2) tr.classList.add('r3');
         tr.innerHTML = `
-          <td class="rank">${i<3 ? `<span class="trophy">🏆</span>` : (i+1)}</td>
+          <td class="rank"><span class="pos">${posStr}</span> ${trophy}</td>
           <td class="addr">${mask(w.address)}</td>
-          <td class="right">${fmt(w.buy)}</td>
-          <td class="right">${fmt(w.sell)}</td>
-          <td class="right"><strong>${fmt(w.volume)}</strong></td>
+          <td class="right">${fmtInt(w.buy)}</td>
+          <td class="right">${fmtInt(w.sell)}</td>
+          <td class="right"><strong>${fmtInt(w.volume)}</strong></td>
           <td>${w.trades ?? 0}</td>
           <td class="small">${w.last_tx_iso ? new Date(w.last_tx_iso).toISOString().replace('.000','') : '—'}</td>
         `;
@@ -339,16 +355,15 @@
       });
 
       const c = data.cumulative || { total_buy:0, total_sell:0, total_volume:0 };
-      elTotVol.textContent = fmt(c.total_volume || 0);
-      elTotBuy.textContent = fmt(c.total_buy || 0);
-      elTotSell.textContent = fmt(c.total_sell || 0);
+      elTotVol.textContent = fmtInt(c.total_volume || 0);
+      elTotBuy.textContent = fmtInt(c.total_buy || 0);
+      elTotSell.textContent = fmtInt(c.total_sell || 0);
 
-      elUpdated.textContent = `Updated: ${data.updated_at_it || data.updated_at || '—'}`;
+      elUpdated.textContent = `Updated: ${data.updated_at_it || data.updated_at || data.generated_at_it || data.generated_at || '—'}`;
       elTZ.textContent = `TZ: ${data.timezone || 'Europe/Rome'}`;
       elLbCount.textContent = `${wallets.length} wallet${wallets.length===1?'':'s'}`;
       elLbLink.href = `${DATA_BASE}/leaderboard.json`;
     }
-
     function getField(w, field){
       switch(field){
         case 'address': return w.address || '';
@@ -360,32 +375,24 @@
         default: return 0;
       }
     }
-
-    // header sorting
     document.querySelectorAll('thead th').forEach(th=>{
       th.addEventListener('click', ()=>{
         const f = th.dataset.sort;
         if (!f) return;
         if (sortField === f) sortDir = (sortDir === 'asc') ? 'desc' : 'asc';
         else { sortField = f; sortDir = (f === 'address' || f === 'rank') ? 'asc' : 'desc'; }
-        // re-render using last loaded data:
         if (window._lastLeaderboard) renderLeaderboard(window._lastLeaderboard);
       });
     });
 
     // ====== Events feed (buffered ~1h in localStorage) ======
     function loadBuffer(){
-      try{
-        const raw = localStorage.getItem(LS_KEY);
-        const arr = raw ? JSON.parse(raw) : [];
-        return Array.isArray(arr) ? arr : [];
-      } catch { return []; }
+      try{ return JSON.parse(localStorage.getItem(LS_KEY) || '[]') || []; } catch { return []; }
     }
     function saveBuffer(arr){
       try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch {}
     }
     function makeEventKey(e){ return `${e.type}|${e.wallet}|${e.tx}`; }
-
     function mergeEvents(newEvents){
       const now = Date.now();
       const cutoff = now - LOCAL_BUFFER_MIN * 60 * 1000;
@@ -394,18 +401,14 @@
       for (const e of (newEvents||[])){
         const t = Date.parse(e.ts_iso || e.ts_it || new Date().toISOString());
         if (!Number.isFinite(t)) continue;
-        // normalize numeric ts for sorting later
         e._ts = t;
         map.set(makeEventKey(e), e);
       }
-      // filter last hour
       const merged = [...map.values()].filter(e => (e._ts ?? Date.parse(e.ts_iso || 0)) >= cutoff);
-      // sort desc by time
       merged.sort((a,b)=> (b._ts ?? Date.parse(b.ts_iso || 0)) - (a._ts ?? Date.parse(a.ts_iso || 0)));
       saveBuffer(merged);
       return merged;
     }
-
     function renderFeed(eventsObj){
       const src = eventsObj.events || [];
       const merged = mergeEvents(src);
@@ -424,7 +427,7 @@
         div.innerHTML = `
           ${badge}
           <div class="addr">${mask(e.wallet)}</div>
-          <div class="st">${fmt(e.amount)} BUMPER</div>
+          <div class="st">${fmtInt(e.amount)} BUMPER</div>
           <div class="time">${when} <span class="muted">(${rel})</span></div>
           <div class="tx"><a href="${linkSolscan(e.tx)}" target="_blank" rel="noopener">solscan ↗</a></div>
         `;
@@ -440,7 +443,6 @@
           fetchJSON('leaderboard'),
           fetchJSON('latest_events')
         ]);
-        window._lastLeaderboard = lb;
         renderLeaderboard(lb);
         renderFeed(ev);
         setStatus('Live', false);
@@ -450,7 +452,6 @@
         console.error(e);
         setStatus('Error');
         showToast(e.message || 'Failed to refresh');
-        // keep countdown running, will retry on next tick
         startCountdown();
       }
     }
@@ -465,8 +466,8 @@
 
     // boot
     (async function(){
-      elLbLink.href = `${DATA_BASE}/leaderboard.json`;
-      elEvLink.href = `${DATA_BASE}/latest_events.json`;
+      document.getElementById('lb-link').href = `${DATA_BASE}/leaderboard.json`;
+      document.getElementById('ev-link').href = `${DATA_BASE}/latest_events.json`;
       await refreshNow();
     })();
   </script>
