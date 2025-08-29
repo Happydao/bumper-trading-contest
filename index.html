@@ -26,9 +26,9 @@
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
       background:
-        radial-gradient(1100px 600px at 20% -10%, rgba(255,55,95,.15), transparent 60%),
-        radial-gradient(900px 500px at 80% 8%, rgba(255,122,89,.12), transparent 60%),
-        linear-gradient(180deg, rgba(255,55,95,.06), transparent 40%),
+        radial-gradient(1100px 600px at 20% -10%, rgba(255,55,95,.12), transparent 60%),
+        radial-gradient(900px 500px at 80% 8%, rgba(255,122,89,.10), transparent 60%),
+        linear-gradient(180deg, rgba(255,55,95,.05), transparent 40%),
         var(--bg);
       color:var(--fg);
     }
@@ -37,12 +37,6 @@
     .wrap{max-width:1200px; margin:0 auto; padding:20px}
     header{
       display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:12px;
-    }
-    .brand{display:flex; align-items:center; gap:14px}
-    .logo{
-      width:44px; height:44px; border-radius:12px;
-      background: conic-gradient(from 210deg at 50% 50%, var(--accent), var(--accent2) 40%, var(--accent) 80%);
-      box-shadow: 0 0 0 8px rgba(255,55,95,.08), 0 6px 28px rgba(0,0,0,.35);
     }
     h1{font-size:20px; margin:0; letter-spacing:.2px}
     .sub{color:var(--muted); font-size:13px}
@@ -56,33 +50,38 @@
       transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
+
+    /* HERO — focus sulla parte bassa dell'immagine */
+    .hero{
+      position:relative; border-radius:16px; overflow:hidden; margin:10px 0 18px;
+      border:1px solid rgba(255,55,95,.22);
+      background:#140b0f;
+      min-height: 240px;
+      box-shadow:
+        0 0 0 1px rgba(255,55,95,.18) inset,
+        0 14px 40px rgba(255,55,95,.15),
+        0 10px 30px rgba(0,0,0,.35);
+    }
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,5,7,.70), rgba(10,5,7,.35) 45%, rgba(10,5,7,.08) 85%),
+        url('./bumpertrading.png') center 80% / cover no-repeat;
+      /* center 80% => ancorata verso la parte bassa */
+      filter: saturate(1.05) contrast(1.02) brightness(1.02);
+    }
+
     .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
     @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
 
-    .hero{
-      position:relative; border-radius:16px; overflow:hidden; margin:10px 0 18px;
-      border:1px solid rgba(255,255,255,.08);
-      background: #140b0f;
-      min-height: 180px;
-    }
-    .hero::before{
-      /* image cover */
-      content:""; position:absolute; inset:0;
-      background:
-        linear-gradient(180deg, rgba(10,5,7,.0), rgba(10,5,7,.55) 65%, rgba(10,5,7,.85)),
-        url('./bumpertrading.png') center/cover no-repeat;
-      filter: saturate(1.05) contrast(1.02) brightness(.98);
-    }
-    .hero h2{
-      position:absolute; left:18px; bottom:16px; margin:0;
-      font-size:22px; letter-spacing:.4px; text-shadow:0 8px 28px rgba(0,0,0,.75);
-    }
-
     .panel{
       background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
-      border:1px solid rgba(255,255,255,.08);
       border-radius:16px; padding:16px;
-      box-shadow: 0 4px 30px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.02);
+      border:1px solid rgba(255,55,95,.22);
+      box-shadow:
+        0 0 0 1px rgba(255,55,95,.12) inset,
+        0 0 22px rgba(255,55,95,.10),
+        0 4px 30px rgba(0,0,0,.25);
     }
     .panel h3{
       margin:0 0 12px 0; font-size:16px; letter-spacing:.2px;
@@ -90,24 +89,32 @@
     }
     .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:10px;}
     @media (max-width: 700px){ .cards{ grid-template-columns:1fr; } }
-    .card{ background:#110a0e; border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px; }
+    .card{
+      background:#110a0e; border-radius:14px; padding:12px;
+      border:1px solid rgba(255,55,95,.22);
+      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25);
+    }
     .k{font-size:12px; color:var(--muted); margin-bottom:4px}
     .v{font-size:22px; font-weight:800}
 
     .leader{
-      border-radius:12px; overflow:auto; border:1px solid rgba(255,255,255,.06); max-height: 56vh;
+      border-radius:12px; overflow:auto; border:1px solid rgba(255,55,95,.22); max-height: 56vh;
+      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;
     }
     table{width:100%; border-collapse:collapse; font-size:14px}
     thead th{
       position:sticky; top:0; background:#160c10; z-index:1;
-      padding:10px; text-align:left; font-weight:800; letter-spacing:.2px; border-bottom:1px solid rgba(255,255,255,.08);
+      padding:10px; text-align:left; font-weight:800; letter-spacing:.2px;
+      border-bottom:1px solid rgba(255,55,95,.35);
       cursor:pointer; user-select:none;
     }
-    tbody td{ padding:10px; border-bottom:1px dashed rgba(255,255,255,.06); }
-    tbody tr:hover{ background: rgba(255,55,95,.06); }
+    tbody td{ padding:10px; border-bottom:1px dashed rgba(255,255,255,.10); }
+    tbody tr:hover{ background: rgba(255,55,95,.08); }
+    .right{ text-align:right }
     .rank{width:86px; font-weight:800; white-space:nowrap}
     .pos{margin-right:6px}
     .addr{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
+
     .badge{
       font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px;
       border:1px solid rgba(255,255,255,.12);
@@ -115,6 +122,7 @@
     .buy{ color:var(--buy); background: rgba(32,227,162,.10); }
     .sell{ color:var(--sell); background: rgba(255,93,122,.12); border-color: rgba(255,93,122,.24); }
     .st{ color:#b7b1c5; }
+
     .trophy{ font-size:18px }
     .r1 .trophy{ color: var(--gold) }
     .r2 .trophy{ color: var(--silver) }
@@ -122,11 +130,13 @@
 
     .feed{
       display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px;
-      border:1px solid rgba(255,255,255,.06); padding:10px;
+      border:1px solid rgba(255,55,95,.22); padding:10px;
+      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;
     }
     .ev{
-      display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid rgba(255,255,255,.08);
+      display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid rgba(255,55,95,.22);
       padding:10px; border-radius:12px;
+      box-shadow: 0 0 0 1px rgba(255,55,95,.08) inset;
     }
     .ev .time{ color:var(--muted); font-size:12px; min-width:110px }
     .ev .tx{ margin-left:auto; font-size:12px }
@@ -140,27 +150,23 @@
     }
     @keyframes spin{ to { transform: rotate(360deg) } }
     .toast{
-      position: fixed; right: 16px; bottom: 16px; background: #150c10; border:1px solid rgba(255,255,255,.12);
+      position: fixed; right: 16px; bottom: 16px; background: #150c10; border:1px solid rgba(255,55,95,.24);
       padding:10px 12px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); max-width: 320px;
     }
     .hidden{ display:none }
-    .right{ text-align:right }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>$BUMPER volume trading competiton</h1>
-          <div class="sub">
-            <span id="updated">Updated: —</span>
-            <span class="sep">·</span>
-            <span id="tz">TZ: —</span>
-            <span class="sep">·</span>
-            <span id="refresh-in" class="pill">refreshing…</span>
-          </div>
+      <div>
+        <h1>$BUMPER volume trading competiton</h1>
+        <div class="sub">
+          <span id="updated">Updated: —</span>
+          <span class="sep">·</span>
+          <span id="tz">TZ: —</span>
+          <span class="sep">·</span>
+          <span id="refresh-in" class="pill">refreshing…</span>
         </div>
       </div>
       <div class="controls">
@@ -169,18 +175,13 @@
       </div>
     </header>
 
-    <!-- HERO with image -->
-    <div class="hero">
-      <h2>$BUMPER cumulative leaderboard · live feed</h2>
-    </div>
+    <!-- HERO con immagine focus in basso -->
+    <div class="hero" aria-hidden="true"></div>
 
     <div class="grid">
       <!-- Leaderboard -->
       <section class="panel">
-        <h3>
-          Leaderboard (cumulative)
-          <span class="muted small">click headers to sort</span>
-        </h3>
+        <h3>Leaderboard (cumulative)</h3>
 
         <div class="cards">
           <div class="card">
@@ -223,10 +224,7 @@
 
       <!-- Latest events feed -->
       <section class="panel">
-        <h3>
-          Latest Trades (last ~1h)
-          <span class="muted small">from <code>latest_events.json</code></span>
-        </h3>
+        <h3>Latest Trades (last ~1h)</h3>
         <div class="feed" id="feed"></div>
         <div class="foot">
           <span>Data source:</span>
@@ -247,7 +245,7 @@
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
     const REFRESH_SECONDS = 60;    // UI refresh; non fa alcun commit su GitHub
     const LOCAL_BUFFER_MIN = 60;   // keep events in local buffer (minutes)
-    const LS_KEY = 'bumper_events_buffer_v2';
+    const LS_KEY = 'bumper_events_buffer_v3';
 
     // ====== DOM ======
     const elUpdated = document.getElementById('updated');
@@ -284,9 +282,7 @@
       const h = Math.round(m/60); return `${h}h ago`;
     };
     const mask = (addr) => addr; // already masked by backend
-
     function linkSolscan(tx){ return `https://solscan.io/tx/${tx}`; }
-
     function showToast(msg, ok=false){
       toast.textContent = msg;
       toast.classList.remove('hidden');
@@ -295,18 +291,15 @@
       clearTimeout(showToast._t);
       showToast._t = setTimeout(()=> toast.classList.add('hidden'), 4000);
     }
-
     async function fetchJSON(name){
       const url = `${DATA_BASE}/${name}.json?t=${Date.now()}`;
       const res = await fetch(url, { cache: 'no-store' });
       if (!res.ok) throw new Error(`GET ${name}.json → HTTP ${res.status}`);
       return await res.json();
     }
-
     function setStatus(text, spinning=true){
       elStatus.innerHTML = (spinning ? '<span class="spinner"></span> ' : '') + text;
     }
-
     function startCountdown(){
       refreshCountdown = REFRESH_SECONDS;
       elRefreshIn.textContent = `next refresh in ${refreshCountdown}s`;
