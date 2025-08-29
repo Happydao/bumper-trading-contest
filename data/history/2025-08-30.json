@@ -1,0 +1,27 @@
+{
+  "date": "2025-08-30",
+  "generated_at": "2025-08-29T22:01:14.960Z",
+  "cumulative": {
+    "total_buy": 3203.3072159999997,
+    "total_sell": 2550,
+    "total_volume": 5753.307215999999
+  },
+  "wallets": [
+    {
+      "address": "F1Hhn4vx7NxZ33ck9qYJqHs4WGmadPz9CUfma6afgZHs",
+      "buy": 2958.792783,
+      "sell": 1600,
+      "volume": 4558.792783,
+      "trades": 7,
+      "last_tx_iso": "2025-08-29T21:49:18.000Z"
+    },
+    {
+      "address": "EGJj3pf2GYGhidrrC8b9xBcWhAPVV8Qw34M9spYsQirj",
+      "buy": 244.514433,
+      "sell": 950,
+      "volume": 1194.514433,
+      "trades": 4,
+      "last_tx_iso": "2025-08-29T20:20:09.000Z"
+    }
+  ]
+}
