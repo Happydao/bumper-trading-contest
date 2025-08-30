@@ -1,29 +1,165 @@
 {
-  "updated_at": "2025-08-29T22:48:07.697Z",
-  "updated_at_it": "29/08/2025 22:45:07 Europe/Rome",
+  "updated_at": "2025-08-30T17:35:56.318Z",
+  "updated_at_it": "30/08/2025 19:35:56 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
-    "total_buy": 4569.679984,
-    "total_sell": 4255.464000,
-    "total_volume": 8825.143984
+    "total_buy": 4731.111708,
+    "total_sell": 4281.464505,
+    "total_volume": 9012.576213
   },
   "wallets": [
     {
-      "address": "Hyth...x8uo",
+      "address": "F1Hh...gZHs",
       "buy": 3153.418875,
       "sell": 2000,
       "volume": 5153.418874999999,
       "trades": 10,
-      "last_tx_iso": "2025-08-28T20:23:01.000Z"
+      "last_tx_iso": "2025-08-29T22:29:56.000Z"
     },
     {
-      "address": "Io7u...oP9i",
+      "address": "EGJj...Qirj",
       "buy": 1577.692833,
       "sell": 2281.464505,
       "volume": 3859.157338,
       "trades": 6,
-      "last_tx_iso": "2025-08-28T21:38:43.000Z"
+      "last_tx_iso": "2025-08-29T22:34:43.000Z"
+    },
+    {
+      "address": "G7uX...soSE",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "C4Qh...8Pkt",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "YKWZ...5qM7",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "92ps...XtYW",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "7vnx...y1nf",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "YhrB...1mc7",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "6z67...kEdX",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "4j7N...iWeu",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "2X7v...jeDf",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "2gkM...LBdE",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "5iW7...axze",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "8M3k...4efX",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "BECf...xGXr",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "GJ6H...JLum",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "42wY...rKRL",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "E1qa...kZkm",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "4UQ2...TuXa",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
     }
   ]
 }
