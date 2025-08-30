@@ -1,13 +1,12 @@
 {
-  "date": "2025-08-31",
-  "generated_at": "2025-08-30T22:03:34.551Z",
-  "generated_at_it": "31/08/2025 00:03:34 Europe/Rome",
+  "updated_at": "2025-08-30T22:09:57.110Z",
+  "updated_at_it": "31/08/2025 00:09:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
-    "total_buy": 1976750.3502059998,
-    "total_sell": 1872143.8477669996,
-    "total_volume": 3848894.1979729994
+    "total_buy": 1992324.533903,
+    "total_sell": 1904028.8477669996,
+    "total_volume": 3896353.3816699996
   },
   "wallets": [
     {
@@ -61,18 +60,18 @@
     {
       "address": "92ps...XtYW",
       "buy": 82458.510179,
-      "sell": 67000,
-      "volume": 149458.510179,
-      "trades": 9,
-      "last_tx_iso": "2025-08-30T20:46:18.000Z"
+      "sell": 82485,
+      "volume": 164943.510179,
+      "trades": 10,
+      "last_tx_iso": "2025-08-30T22:08:48.000Z"
     },
     {
       "address": "65Dt...jwfB",
-      "buy": 69465.76592500001,
+      "buy": 85039.94962200001,
       "sell": 69465.765925,
-      "volume": 138931.53185000003,
-      "trades": 11,
-      "last_tx_iso": "2025-08-30T21:44:01.000Z"
+      "volume": 154505.715547,
+      "trades": 12,
+      "last_tx_iso": "2025-08-30T22:06:42.000Z"
     },
     {
       "address": "521d...pF9t",
@@ -81,6 +80,14 @@
       "volume": 107832.760265,
       "trades": 4,
       "last_tx_iso": "2025-08-30T21:05:23.000Z"
+    },
+    {
+      "address": "YKWZ...5qM7",
+      "buy": 33287.331835,
+      "sell": 33285,
+      "volume": 66572.33183499999,
+      "trades": 4,
+      "last_tx_iso": "2025-08-30T22:09:40.000Z"
     },
     {
       "address": "5iW7...axze",
@@ -97,14 +104,6 @@
       "volume": 51639.797117,
       "trades": 4,
       "last_tx_iso": "2025-08-30T19:50:05.000Z"
-    },
-    {
-      "address": "YKWZ...5qM7",
-      "buy": 33287.331835,
-      "sell": 16885,
-      "volume": 50172.331835,
-      "trades": 3,
-      "last_tx_iso": "2025-08-30T20:48:37.000Z"
     },
     {
       "address": "7vnx...y1nf",
