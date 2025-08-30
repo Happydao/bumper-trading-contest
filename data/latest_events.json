@@ -1,57 +1,33 @@
 {
-  "run_at_iso": "2025-08-30T21:39:57.004Z",
-  "run_at_it": "30/08/2025 23:39:57 Europe/Rome",
+  "run_at_iso": "2025-08-30T21:49:58.032Z",
+  "run_at_it": "30/08/2025 23:49:58 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
-  "events_count": 6,
+  "events_count": 3,
   "events": [
     {
       "type": "BUY",
-      "wallet": "GJ6H...JLum",
-      "amount": 13091.785683,
-      "tx": "4MezqsBwrVwGum6GL2ptoFSi4hPgtbm8zLM3YqnoUpdJbnLwsNPEHmQ6qqScGBkQFwPEjy3V9mpSC4y3i1eikwef",
-      "ts_iso": "2025-08-30T21:31:42.000Z",
-      "ts_it": "30/08/2025 23:31:42 Europe/Rome"
+      "wallet": "2gkM...LBdE",
+      "amount": 10480.933655,
+      "tx": "3ZMYi1z6f9u9HY9AbXmzK5sqZUj3HJYnVxbeLcMZVe6i8vkBpycFj1YyXYrRzMWCBVGbAW6QCfSbQ7PZ7HiD7rkK",
+      "ts_iso": "2025-08-30T21:41:38.000Z",
+      "ts_it": "30/08/2025 23:41:38 Europe/Rome"
     },
     {
       "type": "SELL",
-      "wallet": "GJ6H...JLum",
-      "amount": 13091.785683,
-      "tx": "36J3orBCSCgzkhjaR2qK7jfW6nLHuK9F8wK5GE8StBExL7gJL3wLh7aj6gSYCb73nYfPB3nn7WWnyRh86JELtTrx",
-      "ts_iso": "2025-08-30T21:32:04.000Z",
-      "ts_it": "30/08/2025 23:32:04 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "42wY...rKRL",
-      "amount": 13067.738631,
-      "tx": "1kvGnuy4A8xzxiBqn1fd22VczZTXvV8XkSnSN1NAEc5KxK8KaC3kW2jC1aeheG9cmcmkX8xESoLuU8hokWQxxe9",
-      "ts_iso": "2025-08-30T21:33:30.000Z",
-      "ts_it": "30/08/2025 23:33:30 Europe/Rome"
+      "wallet": "2gkM...LBdE",
+      "amount": 10480.933655,
+      "tx": "4kPBYjGGAeAJJAN3BJ2Ktu3iJbX6KA1gzRYFiKbhLs92KY6mV3xcBjmUKDJeY6wi1CzMAkt3Aoe7tWZBXArVbZWC",
+      "ts_iso": "2025-08-30T21:42:26.000Z",
+      "ts_it": "30/08/2025 23:42:26 Europe/Rome"
     },
     {
       "type": "SELL",
-      "wallet": "42wY...rKRL",
-      "amount": 13067.738631,
-      "tx": "rkDU1c1yxtaYviFn6vzGssmiL2vPKX7W12oyUuZE79f3LDYETWFVzLvW7JU67rGh9bQHMeDQFWrDWqXYevdYLZg",
-      "ts_iso": "2025-08-30T21:33:49.000Z",
-      "ts_it": "30/08/2025 23:33:49 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "E1qa...kZkm",
-      "amount": 13052.8978,
-      "tx": "3BdLvtbgtNGbF5Zm9LG98LYFm7ASGTSPFKks2pJjFwhccr7HmHMVa4uNL7r3PjU8kSnk8Si9tG8kreNB3VMNuq6w",
-      "ts_iso": "2025-08-30T21:30:22.000Z",
-      "ts_it": "30/08/2025 23:30:22 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "E1qa...kZkm",
-      "amount": 13052.8978,
-      "tx": "4zMzzpZi4bvHRixLfm4sK1meBvmxwxFhhYyScVqpu3yAuMiTpPmipzkf5RyNZofqXNJXnbg6yPrWdcRfrAdqQa3H",
-      "ts_iso": "2025-08-30T21:30:43.000Z",
-      "ts_it": "30/08/2025 23:30:43 Europe/Rome"
+      "wallet": "65Dt...jwfB",
+      "amount": 16237.547436,
+      "tx": "1qT8FRdURZTKJ4iTyJWZK5EPKVYwg9Z7crxpnP7DumCVT4fxDtDsARLU7WNxR2oVbkCbHPMy9DNU64LKLZmTa4b",
+      "ts_iso": "2025-08-30T21:44:01.000Z",
+      "ts_it": "30/08/2025 23:44:01 Europe/Rome"
     }
   ]
 }
