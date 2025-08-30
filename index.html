@@ -51,7 +51,7 @@
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
 
-    /* HERO — focus sulla parte bassa dell'immagine */
+    /* HERO */
     .hero{
       position:relative; border-radius:16px; overflow:hidden; margin:10px 0 18px;
       border:1px solid rgba(255,55,95,.22);
@@ -67,7 +67,6 @@
       background:
         linear-gradient(180deg, rgba(10,5,7,.70), rgba(10,5,7,.35) 45%, rgba(10,5,7,.08) 85%),
         url('./bumpertrading.png') center / cover no-repeat;
-      /* center 80% => ancorata verso la parte bassa */
       filter: saturate(1.05) contrast(1.02) brightness(1.02);
     }
 
@@ -175,7 +174,6 @@
       </div>
     </header>
 
-    <!-- HERO con immagine focus in basso -->
     <div class="hero" aria-hidden="true"></div>
 
     <div class="grid">
@@ -224,15 +222,13 @@
 
       <!-- Latest events feed -->
       <section class="panel">
-        <h3>Latest Trades (last ~10 min)</h3>
+        <h3>Latest Trades</h3>
         <div class="feed" id="feed"></div>
         <div class="foot">
           <span>Data source:</span>
           <a id="ev-link" target="_blank" rel="noopener">latest_events.json</a>
           <span class="sep">|</span>
-          <span class="muted">Feed is aggregated locally across runs (deduped) & kept for ~10 minutes.</span>
-          <span class="sep">|</span>
-          <a href="#" id="clear-cache">clear local cache</a>
+          <span class="muted">Rendered directly from the file (newest first).</span>
         </div>
       </section>
     </div>
@@ -243,9 +239,7 @@
   <script>
     // ====== CONFIG ======
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
-    const REFRESH_SECONDS = 60;    // UI refresh; non fa alcun commit su GitHub
-    const LOCAL_BUFFER_MIN = 10;   // keep events in local buffer (minutes)
-    const LS_KEY = 'bumper_events_buffer_v3';
+    const REFRESH_SECONDS = 60;    // UI refresh; no commits on GitHub
 
     // ====== DOM ======
     const elUpdated = document.getElementById('updated');
@@ -262,7 +256,6 @@
     const elFeed = document.getElementById('feed');
     const toast = document.getElementById('toast');
     const btnRefresh = document.getElementById('btn-refresh');
-    const btnClearCache = document.getElementById('clear-cache');
 
     let sortField = 'volume';
     let sortDir = 'desc';
@@ -378,40 +371,20 @@
       });
     });
 
-    // ====== Events feed (buffered ~1h in localStorage) ======
-    function loadBuffer(){
-      try{ return JSON.parse(localStorage.getItem(LS_KEY) || '[]') || []; } catch { return []; }
-    }
-    function saveBuffer(arr){
-      try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch {}
-    }
-    function makeEventKey(e){ return `${e.type}|${e.wallet}|${e.tx}`; }
-    function mergeEvents(newEvents){
-      const now = Date.now();
-      const cutoff = now - LOCAL_BUFFER_MIN * 60 * 1000;
-      const buf = loadBuffer();
-      const map = new Map(buf.map(ev=>[makeEventKey(ev), ev]));
-      for (const e of (newEvents||[])){
-        const t = Date.parse(e.ts_iso || e.ts_it || new Date().toISOString());
-        if (!Number.isFinite(t)) continue;
-        e._ts = t;
-        map.set(makeEventKey(e), e);
-      }
-      const merged = [...map.values()].filter(e => (e._ts ?? Date.parse(e.ts_iso || 0)) >= cutoff);
-      merged.sort((a,b)=> (b._ts ?? Date.parse(b.ts_iso || 0)) - (a._ts ?? Date.parse(a.ts_iso || 0)));
-      saveBuffer(merged);
-      return merged;
-    }
+    // ====== Events feed — render TUTTO il file (newest first) ======
     function renderFeed(eventsObj){
-      const src = eventsObj.events || [];
-      const merged = mergeEvents(src);
+      const src = (eventsObj.events || [])
+        .slice()
+        .sort((a,b)=> Date.parse(b.ts_iso || 0) - Date.parse(a.ts_iso || 0));
+
       elEvLink.href = `${DATA_BASE}/latest_events.json`;
       elFeed.innerHTML = '';
-      if (!merged.length){
-        elFeed.innerHTML = `<div class="muted" style="padding:6px 2px">No trades in the last hour.</div>`;
+
+      if (!src.length){
+        elFeed.innerHTML = `<div class="muted" style="padding:6px 2px">No trades in feed.</div>`;
         return;
       }
-      for (const e of merged){
+      for (const e of src){
         const badge = e.type === 'BUY' ? `<span class="badge buy">BUY</span>` : `<span class="badge sell">SELL</span>`;
         const when = e.ts_it || e.ts_iso || '';
         const rel = e.ts_iso ? ago(e.ts_iso) : '';
@@ -450,12 +423,6 @@
     }
 
     btnRefresh.addEventListener('click', refreshNow);
-    btnClearCache.addEventListener('click', (e)=>{
-      e.preventDefault();
-      saveBuffer([]);
-      renderFeed({ events: [] });
-      showToast('Local event cache cleared', true);
-    });
 
     // boot
     (async function(){
