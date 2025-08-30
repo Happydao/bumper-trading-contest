@@ -1,12 +1,12 @@
 {
-  "updated_at": "2025-08-30T21:29:57.796Z",
-  "updated_at_it": "30/08/2025 23:29:57 Europe/Rome",
+  "updated_at": "2025-08-30T21:39:57.004Z",
+  "updated_at_it": "30/08/2025 23:39:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
-    "total_buy": 1928634.6872699999,
-    "total_sell": 1808494.409067,
-    "total_volume": 3737129.096337
+    "total_buy": 1967847.1093839998,
+    "total_sell": 1847706.8311810002,
+    "total_volume": 3815553.9405650003
   },
   "wallets": [
     {
@@ -27,11 +27,27 @@
     },
     {
       "address": "E1qa...kZkm",
-      "buy": 90431.348211,
-      "sell": 90431.348211,
-      "volume": 180862.696422,
-      "trades": 11,
-      "last_tx_iso": "2025-08-30T21:02:40.000Z"
+      "buy": 103484.24601100001,
+      "sell": 103484.24601100001,
+      "volume": 206968.49202200002,
+      "trades": 13,
+      "last_tx_iso": "2025-08-30T21:30:43.000Z"
+    },
+    {
+      "address": "42wY...rKRL",
+      "buy": 91172.77864599999,
+      "sell": 91172.77864599999,
+      "volume": 182345.55729199998,
+      "trades": 8,
+      "last_tx_iso": "2025-08-30T21:33:49.000Z"
+    },
+    {
+      "address": "GJ6H...JLum",
+      "buy": 90580.47576799999,
+      "sell": 90580.47576799999,
+      "volume": 181160.95153599998,
+      "trades": 6,
+      "last_tx_iso": "2025-08-30T21:32:04.000Z"
     },
     {
       "address": "2gkM...LBdE",
@@ -40,22 +56,6 @@
       "volume": 167539.425382,
       "trades": 19,
       "last_tx_iso": "2025-08-30T20:24:22.000Z"
-    },
-    {
-      "address": "42wY...rKRL",
-      "buy": 78105.04001499999,
-      "sell": 78105.04001499999,
-      "volume": 156210.08002999998,
-      "trades": 6,
-      "last_tx_iso": "2025-08-30T21:18:10.000Z"
-    },
-    {
-      "address": "GJ6H...JLum",
-      "buy": 77488.690085,
-      "sell": 77488.690085,
-      "volume": 154977.38017,
-      "trades": 4,
-      "last_tx_iso": "2025-08-30T21:08:42.000Z"
     },
     {
       "address": "92ps...XtYW",
