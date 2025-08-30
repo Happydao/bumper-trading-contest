@@ -224,13 +224,13 @@
 
       <!-- Latest events feed -->
       <section class="panel">
-        <h3>Latest Trades (last ~1h)</h3>
+        <h3>Latest Trades (last ~10 min)</h3>
         <div class="feed" id="feed"></div>
         <div class="foot">
           <span>Data source:</span>
           <a id="ev-link" target="_blank" rel="noopener">latest_events.json</a>
           <span class="sep">|</span>
-          <span class="muted">Feed is aggregated locally across runs (deduped) & kept for ~60 minutes.</span>
+          <span class="muted">Feed is aggregated locally across runs (deduped) & kept for ~10 minutes.</span>
           <span class="sep">|</span>
           <a href="#" id="clear-cache">clear local cache</a>
         </div>
@@ -243,8 +243,8 @@
   <script>
     // ====== CONFIG ======
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
-    const REFRESH_SECONDS = 60;    // UI refresh; non fa alcun commit su GitHub
-    const LOCAL_BUFFER_MIN = 60;   // keep events in local buffer (minutes)
+    const REFRESH_SECONDS = 600;    // UI refresh; non fa alcun commit su GitHub
+    const LOCAL_BUFFER_MIN = 10;   // keep events in local buffer (minutes)
     const LS_KEY = 'bumper_events_buffer_v3';
 
     // ====== DOM ======
