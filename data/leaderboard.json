@@ -1,12 +1,12 @@
 {
-  "updated_at": "2025-08-30T20:59:57.008Z",
-  "updated_at_it": "30/08/2025 22:59:57 Europe/Rome",
+  "updated_at": "2025-08-30T21:09:57.022Z",
+  "updated_at_it": "30/08/2025 23:09:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
-    "total_buy": 1738530.178813,
-    "total_sell": 1639784.0143990002,
-    "total_volume": 3378314.193212
+    "total_buy": 1850529.647255,
+    "total_sell": 1730389.369052,
+    "total_volume": 3580919.016307
   },
   "wallets": [
     {
@@ -28,10 +28,10 @@
     {
       "address": "E1qa...kZkm",
       "buy": 90431.348211,
-      "sell": 77314.683643,
-      "volume": 167746.031854,
-      "trades": 10,
-      "last_tx_iso": "2025-08-30T20:56:10.000Z"
+      "sell": 90431.348211,
+      "volume": 180862.696422,
+      "trades": 11,
+      "last_tx_iso": "2025-08-30T21:02:40.000Z"
     },
     {
       "address": "2gkM...LBdE",
@@ -40,6 +40,14 @@
       "volume": 167539.425382,
       "trades": 19,
       "last_tx_iso": "2025-08-30T20:24:22.000Z"
+    },
+    {
+      "address": "GJ6H...JLum",
+      "buy": 77488.690085,
+      "sell": 77488.690085,
+      "volume": 154977.38017,
+      "trades": 4,
+      "last_tx_iso": "2025-08-30T21:08:42.000Z"
     },
     {
       "address": "92ps...XtYW",
@@ -51,19 +59,19 @@
     },
     {
       "address": "65Dt...jwfB",
-      "buy": 61320.56939900001,
+      "buy": 69465.76592500001,
       "sell": 53228.218489,
-      "volume": 114548.787888,
-      "trades": 9,
-      "last_tx_iso": "2025-08-30T21:01:34.000Z"
+      "volume": 122693.984414,
+      "trades": 10,
+      "last_tx_iso": "2025-08-30T21:10:56.000Z"
     },
     {
       "address": "521d...pF9t",
-      "buy": 26467.178434,
+      "buy": 52832.760265000004,
       "sell": 55000,
-      "volume": 81467.178434,
-      "trades": 3,
-      "last_tx_iso": "2025-08-30T19:03:32.000Z"
+      "volume": 107832.760265,
+      "trades": 4,
+      "last_tx_iso": "2025-08-30T21:05:23.000Z"
     },
     {
       "address": "5iW7...axze",
@@ -163,14 +171,6 @@
     },
     {
       "address": "BECf...xGXr",
-      "buy": 0,
-      "sell": 0,
-      "volume": 0,
-      "trades": 0,
-      "last_tx_iso": null
-    },
-    {
-      "address": "GJ6H...JLum",
       "buy": 0,
       "sell": 0,
       "volume": 0,
