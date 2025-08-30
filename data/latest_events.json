@@ -1,57 +1,8 @@
 {
-  "run_at_iso": "2025-08-30T21:19:57.768Z",
-  "run_at_it": "30/08/2025 23:19:57 Europe/Rome",
+  "run_at_iso": "2025-08-30T21:29:57.796Z",
+  "run_at_it": "30/08/2025 23:29:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
-  "events_count": 6,
-  "events": [
-    {
-      "type": "BUY",
-      "wallet": "42wY...rKRL",
-      "amount": 25971.341475,
-      "tx": "5nNYvH7Eu8DkEdsYCyc5DYmLZuzwzXHBdJ7VERRZBwFxhBzKjRS8YLFYmqQEStPhiQYmxkmBiz4LteS73eaVmFes",
-      "ts_iso": "2025-08-30T21:15:00.000Z",
-      "ts_it": "30/08/2025 23:15:00 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "42wY...rKRL",
-      "amount": 25971.341475,
-      "tx": "2Y9txvtN1yp3bZcGHCGR7opEuDb5dnKkCUD8a8ZqKqUNkoD3MmZpGSgjtJp1kWJcJPkMee4pz15MhdUNyV9Jprtq",
-      "ts_iso": "2025-08-30T21:15:30.000Z",
-      "ts_it": "30/08/2025 23:15:30 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "42wY...rKRL",
-      "amount": 26068.913864,
-      "tx": "3SPi5LTpJBXBFnWdspYuZ5ojUG8Cb8UhhaiZHG4QahQFtrFHiZj78BviQ6sow4dwwVKYiao3LmviGfJ2FkQG7tbo",
-      "ts_iso": "2025-08-30T21:16:42.000Z",
-      "ts_it": "30/08/2025 23:16:42 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "42wY...rKRL",
-      "amount": 26068.913864,
-      "tx": "CjkYKT3Wu6Yj58DwsBcXUH28PhAqUkVma9bruD24sPL8W1eEyB6GTbixECnv2VCuHrFdfFYQW724Xv2fywtV4FX",
-      "ts_iso": "2025-08-30T21:17:13.000Z",
-      "ts_it": "30/08/2025 23:17:13 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "42wY...rKRL",
-      "amount": 26064.784676,
-      "tx": "41a5k7YRch5zrtZJtdsoPoCpBTDgMqwr195EPN1t3j2LLqJvVCDCVZGVUKJHBmhfT19FyJBpAcFp6EXUNpfEPFNH",
-      "ts_iso": "2025-08-30T21:17:43.000Z",
-      "ts_it": "30/08/2025 23:17:43 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "42wY...rKRL",
-      "amount": 26064.784676,
-      "tx": "34uh7v7utPFCCnfUu9zNoBov2pWxiWe3h4vr1rKfvjhnQ3N7YVFnVCApxUXfWsqVn9CTnATBX1Sf2EwTLbfjDzfk",
-      "ts_iso": "2025-08-30T21:18:10.000Z",
-      "ts_it": "30/08/2025 23:18:10 Europe/Rome"
-    }
-  ]
+  "events_count": 0,
+  "events": []
 }
