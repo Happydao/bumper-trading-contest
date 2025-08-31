@@ -1,21 +1,21 @@
 {
-  "updated_at": "2025-08-31T08:49:57.016Z",
-  "updated_at_it": "31/08/2025 10:49:57 Europe/Rome",
+  "updated_at": "2025-08-31T08:59:57.865Z",
+  "updated_at_it": "31/08/2025 10:59:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "cumulative": {
-    "total_buy": 2466106.060104,
-    "total_sell": 2406818.5860610004,
-    "total_volume": 4872924.646165
+    "total_buy": 2548398.8054159996,
+    "total_sell": 2452554.495282,
+    "total_volume": 5000953.300697999
   },
   "wallets": [
     {
       "address": "C4Qh...8Pkt",
-      "buy": 845380.6823559997,
+      "buy": 901906.4109749997,
       "sell": 845380.682356,
-      "volume": 1690761.3647119997,
-      "trades": 85,
-      "last_tx_iso": "2025-08-31T08:49:33.000Z"
+      "volume": 1747287.0933309996,
+      "trades": 87,
+      "last_tx_iso": "2025-08-31T08:51:28.000Z"
     },
     {
       "address": "4UQ2...TuXa",
@@ -27,11 +27,11 @@
     },
     {
       "address": "GJ6H...JLum",
-      "buy": 180830.033492,
-      "sell": 180830.033492,
-      "volume": 361660.066984,
-      "trades": 16,
-      "last_tx_iso": "2025-08-31T08:22:07.000Z"
+      "buy": 206597.050185,
+      "sell": 206597.050185,
+      "volume": 413194.10037,
+      "trades": 18,
+      "last_tx_iso": "2025-08-31T08:50:43.000Z"
     },
     {
       "address": "65Dt...jwfB",
@@ -122,6 +122,14 @@
       "last_tx_iso": "2025-08-30T19:50:05.000Z"
     },
     {
+      "address": "GK75...dFie",
+      "buy": 0,
+      "sell": 40449.807945,
+      "volume": 40449.807945,
+      "trades": 2,
+      "last_tx_iso": "2025-08-31T08:50:38.000Z"
+    },
+    {
       "address": "2X7v...jeDf",
       "buy": 15680.942639,
       "sell": 15680.942639,
@@ -136,14 +144,6 @@
       "volume": 27338.490583,
       "trades": 2,
       "last_tx_iso": "2025-08-30T18:21:20.000Z"
-    },
-    {
-      "address": "GK75...dFie",
-      "buy": 0,
-      "sell": 20480.915417,
-      "volume": 20480.915417,
-      "trades": 1,
-      "last_tx_iso": "2025-08-31T08:50:11.000Z"
     },
     {
       "address": "F1Hh...gZHs",
