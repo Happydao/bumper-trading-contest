@@ -1,25 +1,49 @@
 {
-  "run_at_iso": "2025-08-31T10:19:57.819Z",
-  "run_at_it": "31/08/2025 12:19:57 Europe/Rome",
+  "run_at_iso": "2025-08-31T10:29:57.058Z",
+  "run_at_it": "31/08/2025 12:29:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
-  "events_count": 2,
+  "events_count": 5,
   "events": [
     {
       "type": "BUY",
       "wallet": "2gkM...LBdE",
-      "amount": 5433.996477,
-      "tx": "J3tRFPRKNgLj5y9193keqQBo9FgQWhQwM1swD3qxLA5WfHtpzPGvB8yRnxN2c3YfGHEhE2Q12zZY2Wc4JinxtYN",
-      "ts_iso": "2025-08-31T10:14:55.000Z",
-      "ts_it": "31/08/2025 12:14:55 Europe/Rome"
+      "amount": 10802.155894,
+      "tx": "3AM8om7C286kKdkDq7Bi8pKZMK124Rr3Ze1Q1r4yLwFHctAjGvv9asV66BZFaUjvcMiqVxX8C945UfrzL2mKGBy",
+      "ts_iso": "2025-08-31T10:26:21.000Z",
+      "ts_it": "31/08/2025 12:26:21 Europe/Rome"
     },
     {
       "type": "SELL",
       "wallet": "2gkM...LBdE",
-      "amount": 5433.996477,
-      "tx": "4QJjbAuBcZLFzFAp43fWkjcP1j9feM1xuSfNtT4n89DzNw6WLjjD5HsjdrtaRQ8B3CV5F5buKbcuRm7d7JDGmPG1",
-      "ts_iso": "2025-08-31T10:15:00.000Z",
-      "ts_it": "31/08/2025 12:15:00 Europe/Rome"
+      "amount": 10802.155894,
+      "tx": "3Ys3oG2g853VYryMxyEVfC2JL9CM7QTNiQTuhqNdeooyJTesMJsUMBtCKESwnP6Kanti2K8RkmYcGhmb6rKi31AZ",
+      "ts_iso": "2025-08-31T10:26:36.000Z",
+      "ts_it": "31/08/2025 12:26:36 Europe/Rome"
+    },
+    {
+      "type": "BUY",
+      "wallet": "2gkM...LBdE",
+      "amount": 10870.219515,
+      "tx": "2giLo2Kez5Z4YRFxYSVBTkVTzrcY5W877TqNVceBJu3VFPYAJNBH8rgJw5T4p4jY2axhD6KELTVdMkVe8Jzo8ctv",
+      "ts_iso": "2025-08-31T10:30:12.000Z",
+      "ts_it": "31/08/2025 12:30:12 Europe/Rome"
+    },
+    {
+      "type": "SELL",
+      "wallet": "2gkM...LBdE",
+      "amount": 10870.219515,
+      "tx": "2LSaiYPwJFRfxKbAKEMXJHukNpxoYedoDkHcuAWn5d4PZLv2KgRZVuRBaFruzNLvpXMnKsjyw2KEdFxoggVTLGoi",
+      "ts_iso": "2025-08-31T10:30:21.000Z",
+      "ts_it": "31/08/2025 12:30:21 Europe/Rome"
+    },
+    {
+      "type": "BUY",
+      "wallet": "4UQ2...TuXa",
+      "amount": 52790.72641,
+      "tx": "5bfVCHN5jktMMqfb5AiBmCuSRZbwkZ1WGzooWxDiXMxHbHwapg8rM8Rp8sgLXzMPMwN9TzVBySbbjXJL8zmq6D6h",
+      "ts_iso": "2025-08-31T10:25:53.000Z",
+      "ts_it": "31/08/2025 12:25:53 Europe/Rome"
     }
   ]
 }
