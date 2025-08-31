@@ -1,0 +1,254 @@
+{
+  "date": "2025-09-01",
+  "generated_at": "2025-08-31T22:03:30.933Z",
+  "generated_at_it": "01/09/2025 00:03:30 Europe/Rome",
+  "timezone": "Europe/Rome",
+  "locale": "it-IT",
+  "cumulative": {
+    "total_buy": 4311944.02517,
+    "total_sell": 4318957.675829999,
+    "total_volume": 8630901.701
+  },
+  "wallets": [
+    {
+      "address": "C4Qh...8Pkt",
+      "buy": 1292814.0891739996,
+      "sell": 1249486.2074349998,
+      "volume": 2542300.2966089994,
+      "trades": 126,
+      "last_tx_iso": "2025-08-31T19:46:21.000Z"
+    },
+    {
+      "address": "9h5r...ahW8",
+      "buy": 800466.0509690002,
+      "sell": 817455.878408,
+      "volume": 1617921.9293770003,
+      "trades": 58,
+      "last_tx_iso": "2025-08-31T16:29:45.000Z"
+    },
+    {
+      "address": "4UQ2...TuXa",
+      "buy": 778184.0958550001,
+      "sell": 779740.676773,
+      "volume": 1557924.772628,
+      "trades": 69,
+      "last_tx_iso": "2025-08-31T20:59:19.000Z"
+    },
+    {
+      "address": "GJ6H...JLum",
+      "buy": 232268.042967,
+      "sell": 232268.042967,
+      "volume": 464536.085934,
+      "trades": 20,
+      "last_tx_iso": "2025-08-31T09:28:28.000Z"
+    },
+    {
+      "address": "TSqX...o76T",
+      "buy": 206272.46587299998,
+      "sell": 202226.314511,
+      "volume": 408498.780384,
+      "trades": 16,
+      "last_tx_iso": "2025-08-30T19:54:09.000Z"
+    },
+    {
+      "address": "65Dt...jwfB",
+      "buy": 169885.59737700003,
+      "sell": 169825.903168,
+      "volume": 339711.500545,
+      "trades": 25,
+      "last_tx_iso": "2025-08-31T16:35:45.000Z"
+    },
+    {
+      "address": "2gkM...LBdE",
+      "buy": 121357.018232,
+      "sell": 121357.01823199999,
+      "volume": 242714.036464,
+      "trades": 27,
+      "last_tx_iso": "2025-08-31T10:30:21.000Z"
+    },
+    {
+      "address": "E1qa...kZkm",
+      "buy": 103484.24601100001,
+      "sell": 103484.24601100001,
+      "volume": 206968.49202200002,
+      "trades": 13,
+      "last_tx_iso": "2025-08-30T21:30:43.000Z"
+    },
+    {
+      "address": "92ps...XtYW",
+      "buy": 97076.279804,
+      "sell": 97100,
+      "volume": 194176.279804,
+      "trades": 12,
+      "last_tx_iso": "2025-08-31T08:45:55.000Z"
+    },
+    {
+      "address": "C3EP...ktaH",
+      "buy": 80491.852059,
+      "sell": 109485.924907,
+      "volume": 189977.77696599998,
+      "trades": 7,
+      "last_tx_iso": "2025-08-31T11:43:42.000Z"
+    },
+    {
+      "address": "42wY...rKRL",
+      "buy": 91172.77864599999,
+      "sell": 91172.77864599999,
+      "volume": 182345.55729199998,
+      "trades": 8,
+      "last_tx_iso": "2025-08-30T21:33:49.000Z"
+    },
+    {
+      "address": "521d...pF9t",
+      "buy": 52832.760265000004,
+      "sell": 55000,
+      "volume": 107832.760265,
+      "trades": 4,
+      "last_tx_iso": "2025-08-30T21:05:23.000Z"
+    },
+    {
+      "address": "7vnx...y1nf",
+      "buy": 48830.3128,
+      "sell": 48825,
+      "volume": 97655.3128,
+      "trades": 6,
+      "last_tx_iso": "2025-08-31T08:47:04.000Z"
+    },
+    {
+      "address": "YhrB...1mc7",
+      "buy": 48731.667573,
+      "sell": 48730,
+      "volume": 97461.667573,
+      "trades": 6,
+      "last_tx_iso": "2025-08-31T08:48:50.000Z"
+    },
+    {
+      "address": "YKWZ...5qM7",
+      "buy": 48590.156492999995,
+      "sell": 48590,
+      "volume": 97180.15649299999,
+      "trades": 6,
+      "last_tx_iso": "2025-08-31T08:45:12.000Z"
+    },
+    {
+      "address": "GXer...gkUv",
+      "buy": 27245.426296999998,
+      "sell": 27244,
+      "volume": 54489.426297,
+      "trades": 4,
+      "last_tx_iso": "2025-08-31T10:07:39.000Z"
+    },
+    {
+      "address": "5iW7...axze",
+      "buy": 26032.845681,
+      "sell": 26032.845681,
+      "volume": 52065.691362,
+      "trades": 2,
+      "last_tx_iso": "2025-08-30T19:48:33.000Z"
+    },
+    {
+      "address": "G7uX...soSE",
+      "buy": 25837.70861,
+      "sell": 25802.088507,
+      "volume": 51639.797117,
+      "trades": 4,
+      "last_tx_iso": "2025-08-30T19:50:05.000Z"
+    },
+    {
+      "address": "2va3...xmYE",
+      "buy": 38786.072675,
+      "sell": 7000,
+      "volume": 45786.072675,
+      "trades": 5,
+      "last_tx_iso": "2025-08-31T20:31:05.000Z"
+    },
+    {
+      "address": "GK75...dFie",
+      "buy": 0,
+      "sell": 40449.807945,
+      "volume": 40449.807945,
+      "trades": 2,
+      "last_tx_iso": "2025-08-31T08:50:38.000Z"
+    },
+    {
+      "address": "2X7v...jeDf",
+      "buy": 15680.942639,
+      "sell": 15680.942639,
+      "volume": 31361.885278,
+      "trades": 9,
+      "last_tx_iso": "2025-08-30T20:02:10.000Z"
+    },
+    {
+      "address": "F1Hh...gZHs",
+      "buy": 3153.418875,
+      "sell": 2000,
+      "volume": 5153.418874999999,
+      "trades": 10,
+      "last_tx_iso": "2025-08-29T22:29:56.000Z"
+    },
+    {
+      "address": "EGJj...Qirj",
+      "buy": 2750.196295,
+      "sell": 0,
+      "volume": 2750.196295,
+      "trades": 1,
+      "last_tx_iso": "2025-08-30T17:37:08.000Z"
+    },
+    {
+      "address": "6z67...kEdX",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "4j7N...iWeu",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "8M3k...4efX",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "BECf...xGXr",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "Aqpn...U1Hy",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "FUGd...mV3V",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    },
+    {
+      "address": "7CtS...aVpB",
+      "buy": 0,
+      "sell": 0,
+      "volume": 0,
+      "trades": 0,
+      "last_tx_iso": null
+    }
+  ]
+}
