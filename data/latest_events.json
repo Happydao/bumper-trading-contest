@@ -1,25 +1,17 @@
 {
-  "run_at_iso": "2025-08-31T17:49:57.427Z",
-  "run_at_it": "31/08/2025 19:49:57 Europe/Rome",
+  "run_at_iso": "2025-08-31T17:59:57.474Z",
+  "run_at_it": "31/08/2025 19:59:57 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
-  "events_count": 2,
+  "events_count": 1,
   "events": [
     {
       "type": "SELL",
       "wallet": "4UQ2...TuXa",
-      "amount": 15034.0544,
-      "tx": "4VzSf5kGAwNRCPyQ9Kt9JXKohBQNDGWahAizzCKQWNAPCbD41iMvbZxtZKmVTPwSWEAk6Cwd3QL7T7f6cdWiJynX",
-      "ts_iso": "2025-08-31T17:49:21.000Z",
-      "ts_it": "31/08/2025 19:49:21 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "4UQ2...TuXa",
-      "amount": 30111.225440000002,
-      "tx": "3k3Res6mC2rBS42NwLoEE7v8YoLY868Zc6pbztSy7B4iAbKVU7nkUn8NtDF4zUtqgu8r6Zk1rUvikczvHeskRgH1",
-      "ts_iso": "2025-08-31T17:49:54.000Z",
-      "ts_it": "31/08/2025 19:49:54 Europe/Rome"
+      "amount": 15076.113326,
+      "tx": "2o9u7xQhPtVtF4LSXNqSvZE4CH7E4opMXuJmHSGdPwQaJK55Z9itntHivLDe7e2DW1f2SGLPbgFT5yE7RBoU7WTk",
+      "ts_iso": "2025-08-31T17:52:42.000Z",
+      "ts_it": "31/08/2025 19:52:42 Europe/Rome"
     }
   ]
 }
