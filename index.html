@@ -9,18 +9,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0609;           /* dark red-black */
-      --panel:#130e12;        /* deep panel */
+      --bg:#0a0609;
+      --panel:#130e12;
       --muted:#9a90a4;
       --fg:#f2eaf2;
-      --accent:#ff375f;       /* neon red */
-      --accent2:#ff7a59;      /* hot orange */
-      --buy:#20e3a2;          /* green for BUY */
-      --sell:#ff5d7a;         /* red for SELL */
+      --accent:#ff375f;
+      --accent2:#ff7a59;
+      --buy:#20e3a2;
+      --sell:#ff5d7a;
       --gold:#ffd166;
       --silver:#cbd5e1;
       --bronze:#f4a261;
-      --line:rgba(255,55,95,.22);
+      --card-border: rgba(255,55,95,.22);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -37,51 +37,32 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:1200px; margin:0 auto; padding:20px}
 
-    /* ===== Header snello ===== */
+    /* HEADER */
     header{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:10px;
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px;
     }
-    h1{font-size:22px; margin:0 0 6px 0; letter-spacing:.3px}
-    .sub{color:var(--muted); font-size:13px}
-    .controls{display:flex; align-items:center; gap:8px}
-    .pill{
-      padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#fff; font-size:12px;
-      border:1px solid rgba(255,255,255,.08);
+    h1{
+      margin:0; font-size:34px; line-height:1.05; letter-spacing:.2px; font-weight:800;
+      text-shadow: 0 6px 28px rgba(0,0,0,.35);
     }
+    .tzline{margin-top:6px; color:var(--muted); font-size:12px}
     .btn{
-      border:1px solid rgba(255,255,255,.08); background:#1a1116; color:#fff;
+      border:1px solid rgba(255,255,255,.10); background:#1a1116; color:#fff;
       padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
       transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
-
-    /* ===== Mini-cards strip ===== */
-    .mini{
-      display:grid; grid-template-columns: 1.1fr 0.9fr 0.8fr; gap:12px; margin:10px 0 16px;
+    .pill{
+      padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#fff; font-size:12px;
+      border:1px solid rgba(255,255,255,.08);
     }
-    @media (max-width: 980px){ .mini{ grid-template-columns:1fr; } }
-    .mini .card{
-      background:#110a0e; border-radius:14px; padding:12px 14px;
-      border:1px solid var(--line);
-      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25);
-    }
-    .mini h4{margin:0 0 6px; font-size:13px; letter-spacing:.25px; color:#d9cfdb}
-    .mini .row{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; font-size:13px}
-    .mini .kv{display:flex; gap:6px; align-items:baseline}
-    .mini .k{color:var(--muted)}
-    .mini .v{font-weight:700}
-    .status-running{color:var(--buy); font-weight:800}
-    .status-pending{color:#ffd166; font-weight:800}
-    .status-ended{color:var(--sell); font-weight:800}
+    .controls{ display:flex; align-items:center; gap:10px; }
 
-    /* Progress bar contest */
-    .bar{height:8px; background:#1a1116; border:1px solid var(--line); border-radius:999px; overflow:hidden; margin-top:8px}
-    .bar > i{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--accent2));}
-
-    /* HERO (solo immagine, nessun testo) */
+    /* HERO */
     .hero{
-      position:relative; border-radius:16px; overflow:hidden; margin:4px 0 18px;
-      border:1px solid var(--line); background:#140b0f; min-height: 240px;
+      position:relative; border-radius:16px; overflow:hidden; margin:12px 0 16px;
+      border:1px solid var(--card-border);
+      background:#140b0f; min-height: 220px;
       box-shadow: 0 0 0 1px rgba(255,55,95,.18) inset, 0 14px 40px rgba(255,55,95,.15), 0 10px 30px rgba(0,0,0,.35);
     }
     .hero::before{
@@ -92,92 +73,90 @@
       filter: saturate(1.05) contrast(1.02) brightness(1.02);
     }
 
-    /* ===== Main panels ===== */
+    /* TOP ROW: 2 compact cards */
+    .topgrid{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; margin-top:8px}
+    @media (max-width: 980px){ .topgrid{ grid-template-columns: 1fr; } }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
+      border-radius:16px; padding:14px 16px;
+      border:1px solid var(--card-border);
+      box-shadow: 0 0 0 1px rgba(255,55,95,.12) inset, 0 0 22px rgba(255,55,95,.10), 0 4px 30px rgba(0,0,0,.25);
+    }
+    .card h3{ margin:0 0 8px 0; font-size:14px; letter-spacing:.2px; color:#fff }
+
+    .kv{ display:grid; grid-template-columns: auto 1fr; gap:4px 10px; font-size:13px; color:#dcd6e5; }
+    .kv .k{ color:var(--muted); }
+    .big{ font-size:18px; font-weight:800 }
+    .muted{ color:var(--muted) }
+
+    .progress{
+      margin-top:10px; position:relative; height:10px; border-radius:999px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .progress > span{
+      display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent2));
+      width:0%;
+    }
+    .pct{ font-size:12px; margin-top:6px; color:#e8d8e8 }
+
+    /* GRID MAIN */
     .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
     @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
 
     .panel{
       background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
       border-radius:16px; padding:16px;
-      border:1px solid var(--line);
+      border:1px solid var(--card-border);
       box-shadow: 0 0 0 1px rgba(255,55,95,.12) inset, 0 0 22px rgba(255,55,95,.10), 0 4px 30px rgba(0,0,0,.25);
     }
-    .panel h3{
-      margin:0 0 12px 0; font-size:16px; letter-spacing:.2px;
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-    }
+    .panel h3{ margin:0 0 12px 0; font-size:16px; letter-spacing:.2px; }
+
     .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:10px;}
     @media (max-width: 700px){ .cards{ grid-template-columns:1fr; } }
-    .cardKpi{ background:#110a0e; border-radius:14px; padding:12px; border:1px solid var(--line);
-      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25); }
-    .k{font-size:12px; color:var(--muted); margin-bottom:4px}
+    .mini{ background:#110a0e; border-radius:14px; padding:10px; border:1px solid var(--card-border);
+           box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25); }
+    .k{font-size:12px; color:var(--muted); margin-bottom:2px}
     .v{font-size:22px; font-weight:800}
 
-    .leader{
-      border-radius:12px; overflow:auto; border:1px solid var(--line); max-height: 56vh;
-      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;
-    }
+    .leader{ border-radius:12px; overflow:auto; border:1px solid var(--card-border); max-height: 56vh;
+             box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset; }
     table{width:100%; border-collapse:collapse; font-size:14px}
-    thead th{
-      position:sticky; top:0; background:#160c10; z-index:1;
-      padding:10px; text-align:left; font-weight:800; letter-spacing:.2px;
-      border-bottom:1px solid rgba(255,55,95,.35);
-      cursor:pointer; user-select:none;
-    }
+    thead th{ position:sticky; top:0; background:#160c10; z-index:1; padding:10px; text-align:left; font-weight:800; letter-spacing:.2px; border-bottom:1px solid rgba(255,55,95,.35); cursor:pointer; user-select:none; }
     tbody td{ padding:10px; border-bottom:1px dashed rgba(255,255,255,.10); }
     tbody tr:hover{ background: rgba(255,55,95,.08); }
-    .right{ text-align:right }
+    .right{text-align:right}
     .rank{width:86px; font-weight:800; white-space:nowrap}
     .pos{margin-right:6px}
     .addr{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
 
-    .badge{
-      font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px;
-      border:1px solid rgba(255,255,255,.12);
-    }
+    .badge{ font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px; border:1px solid rgba(255,255,255,.12); }
     .buy{ color:var(--buy); background: rgba(32,227,162,.10); }
     .sell{ color:var(--sell); background: rgba(255,93,122,.12); border-color: rgba(255,93,122,.24); }
-    .st{ color:#b7b1c5; }
-
     .trophy{ font-size:18px }
-    .r1 .trophy{ color: var(--gold) }
-    .r2 .trophy{ color: var(--silver) }
-    .r3 .trophy{ color: var(--bronze) }
+    .r1 .trophy{ color: var(--gold) } .r2 .trophy{ color: var(--silver) } .r3 .trophy{ color: var(--bronze) }
 
-    .feed{
-      display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px;
-      border:1px solid var(--line); padding:10px;
-      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;
-    }
-    .ev{
-      display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid var(--line);
-      padding:10px; border-radius:12px;
-      box-shadow: 0 0 0 1px rgba(255,55,95,.08) inset;
-    }
+    .feed{ display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px; border:1px solid var(--card-border); padding:10px; box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset; }
+    .ev{ display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid var(--card-border); padding:10px; border-radius:12px; box-shadow: 0 0 0 1px rgba(255,55,95,.08) inset; }
     .ev .time{ color:var(--muted); font-size:12px; min-width:110px }
     .ev .tx{ margin-left:auto; font-size:12px }
-    .muted{ color:var(--muted) }
-    .foot{ margin-top:14px; color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center }
+    .foot{ margin-top:12px; color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center }
     .sep{ opacity:.22 }
     .small{ font-size:12px }
-    .spinner{
-      width:14px; height:14px; border:2px solid rgba(255,255,255,.15); border-top-color:var(--accent); border-radius:50%;
-      animation:spin .85s linear infinite; display:inline-block; vertical-align:-2px;
-    }
+
+    .spinner{ width:14px; height:14px; border:2px solid rgba(255,255,255,.15); border-top-color:var(--accent); border-radius:50%; animation:spin .85s linear infinite; display:inline-block; vertical-align:-2px; }
+    @keyframes spin{ to { transform: rotate(360deg) } }
+    .toast{ position: fixed; right: 16px; bottom: 16px; background: #150c10; border:1px solid rgba(255,55,95,.24); padding:10px 12px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); max-width: 320px; }
     .hidden{ display:none }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <!-- Header snello -->
     <header>
       <div>
         <h1>$BUMPER volume trading competiton</h1>
-        <div class="sub">
-          <span id="updated">Updated: —</span>
-          <span class="sep">·</span>
-          <span id="tz">TZ: —</span>
-        </div>
+        <div class="tzline">Times shown in <strong>Europe/Rome</strong></div>
       </div>
       <div class="controls">
         <button class="btn" id="btn-refresh">Refresh now</button>
@@ -185,57 +164,49 @@
       </div>
     </header>
 
-    <!-- Mini cards -->
-    <section class="mini">
-      <div class="card" id="card-contest">
-        <h4>Contest window</h4>
-        <div class="row">
-          <div class="kv"><span class="k">Start:</span> <span class="v" id="c-start">—</span></div>
-          <div class="kv"><span class="k">End:</span>   <span class="v" id="c-end">—</span></div>
+    <!-- TOP ROW: 2 compact cards -->
+    <div class="topgrid">
+      <!-- Contest card -->
+      <section class="card" id="contest-card">
+        <h3>Contest</h3>
+        <div class="kv" style="margin-bottom:6px">
+          <div class="k">Start:</div><div class="v big" id="c-start">—</div>
+          <div class="k">End:</div><div class="v big" id="c-end">—</div>
+          <div class="k">Status:</div><div class="v" id="c-status">—</div>
         </div>
-        <div class="bar" id="c-bar"><i style="width:0%"></i></div>
-      </div>
-      <div class="card" id="card-status">
-        <h4>Status</h4>
-        <div class="row">
-          <div class="kv"><span class="v" id="c-state" class="status-pending">—</span></div>
-          <div class="kv" id="c-left-wrap" style="display:none">
-            <span class="k">Time left:</span> <span class="v" id="c-left">—</span>
-          </div>
+        <div class="progress" title="progress"><span id="c-bar"></span></div>
+        <div class="pct" id="c-pct">0%</div>
+      </section>
+
+      <!-- Refresh card -->
+      <section class="card">
+        <h3>Refresh</h3>
+        <div class="kv">
+          <div class="k">Next refresh in:</div><div class="v big" id="refresh-in">—</div>
+          <div class="k">Last update:</div><div class="v big" id="last-update">—</div>
         </div>
-        <div class="row" id="c-next-snap-wrap" style="margin-top:6px; display:none">
-          <div class="kv"><span class="k">Next daily snapshot:</span> <span class="v" id="c-next-snap">—</span></div>
-        </div>
-      </div>
-      <div class="card" id="card-refresh">
-        <h4>Refresh</h4>
-        <div class="row">
-          <div class="kv"><span class="k">Next refresh in:</span> <span class="v" id="refresh-in">—</span></div>
-        </div>
-        <div class="row" style="margin-top:6px">
-          <div class="kv"><span class="k">Last update:</span> <span class="v" id="last-update-short">—</span></div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <!-- HERO -->
     <div class="hero" aria-hidden="true"></div>
 
+    <!-- MAIN GRID -->
     <div class="grid">
       <!-- Leaderboard -->
       <section class="panel">
         <h3>Leaderboard (cumulative)</h3>
 
         <div class="cards">
-          <div class="cardKpi">
+          <div class="mini">
             <div class="k">Total Volume (BUMPER)</div>
             <div class="v" id="tot-volume">—</div>
           </div>
-          <div class="cardKpi">
+          <div class="mini">
             <div class="k">Total Buy (BUMPER)</div>
             <div class="v" id="tot-buy">—</div>
           </div>
-          <div class="cardKpi">
+          <div class="mini">
             <div class="k">Total Sell (BUMPER)</div>
             <div class="v" id="tot-sell">—</div>
           </div>
@@ -284,11 +255,10 @@
   <script>
     // ====== CONFIG ======
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
-    const REFRESH_SECONDS = 60;    // UI refresh; no commits on GitHub
+    const REFRESH_SECONDS = 60;  // UI refresh; no commits on GitHub
 
     // ====== DOM ======
-    const elUpdated = document.getElementById('updated');
-    const elTZ = document.getElementById('tz');
+    const elRefreshIn = document.getElementById('refresh-in');
     const elStatus = document.getElementById('status-pill');
     const elTotVol = document.getElementById('tot-volume');
     const elTotBuy = document.getElementById('tot-buy');
@@ -298,30 +268,63 @@
     const elEvLink = document.getElementById('ev-link');
     const elTBody = document.getElementById('tbody');
     const elFeed = document.getElementById('feed');
-    const btnRefresh = document.getElementById('btn-refresh');
+    const elLastUpdate = document.getElementById('last-update');
 
-    // mini-cards
+    // contest card
     const elCStart = document.getElementById('c-start');
-    const elCEnd   = document.getElementById('c-end');
-    const elCBar   = document.getElementById('c-bar').firstElementChild;
-    const elCState = document.getElementById('c-state');
-    const elCLeftWrap = document.getElementById('c-left-wrap');
-    const elCLeft  = document.getElementById('c-left');
-    const elCNextSnapWrap = document.getElementById('c-next-snap-wrap');
-    const elCNextSnap = document.getElementById('c-next-snap');
-    const elRefreshIn = document.getElementById('refresh-in');
-    const elLastUpdateShort = document.getElementById('last-update-short');
+    const elCEnd = document.getElementById('c-end');
+    const elCStatus = document.getElementById('c-status');
+    const elCBar = document.getElementById('c-bar');
+    const elCPct = document.getElementById('c-pct');
+
+    const toast = document.getElementById('toast');
+    const btnRefresh = document.getElementById('btn-refresh');
 
     let sortField = 'volume';
     let sortDir = 'desc';
-    let nextRefreshAt = Date.now() + REFRESH_SECONDS*1000;
+    let refreshCountdown = REFRESH_SECONDS;
     let countdownTimer = null;
 
     // ====== Utils ======
-    const fmtInt = (n) => {
-      const v = Math.floor(Number(n || 0));
-      return v.toLocaleString('en-US');
-    };
+    const fmtInt = (n) => Math.floor(Number(n||0)).toLocaleString('en-US');
+    function linkSolscan(tx){ return `https://solscan.io/tx/${tx}`; }
+    function showToast(msg, ok=false){
+      toast.textContent = msg;
+      toast.classList.remove('hidden');
+      toast.style.border = ok ? '1px solid rgba(32,227,162,.35)' : '1px solid rgba(255,93,122,.35)';
+      toast.style.color = ok ? 'var(--buy)' : 'var(--sell)';
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(()=> toast.classList.add('hidden'), 4000);
+    }
+    async function fetchJSON(name){
+      const url = `${DATA_BASE}/${name}.json?t=${Date.now()}`;
+      const res = await fetch(url, { cache: 'no-store' });
+      if (!res.ok) throw new Error(`GET ${name}.json → HTTP ${res.status}`);
+      return await res.json();
+    }
+    function setStatus(text, spinning=true){
+      elStatus.innerHTML = (spinning ? '<span class="spinner"></span> ' : '') + text;
+    }
+    function startCountdown(){
+      refreshCountdown = REFRESH_SECONDS;
+      elRefreshIn.textContent = `${refreshCountdown}s`;
+      clearInterval(countdownTimer);
+      countdownTimer = setInterval(()=>{
+        refreshCountdown--;
+        if (refreshCountdown <= 0){
+          clearInterval(countdownTimer);
+          refreshNow();
+        } else {
+          elRefreshIn.textContent = `${refreshCountdown}s`;
+        }
+      }, 1000);
+    }
+    function fmtLocal(iso){
+      try{
+        const d = new Date(iso);
+        return d.toLocaleString('it-IT', {hour12:false});
+      }catch{ return iso || '—'; }
+    }
     const ago = (iso) => {
       const d = new Date(iso);
       const sec = Math.max(0, Math.round((Date.now() - d.getTime())/1000));
@@ -329,48 +332,47 @@
       const m = Math.round(sec/60); if (m < 60) return `${m}m ago`;
       const h = Math.round(m/60); return `${h}h ago`;
     };
-    const dur = (ms) => {
-      if (!Number.isFinite(ms) || ms < 0) return '—';
-      const s = Math.round(ms/1000);
-      const d = Math.floor(s/86400);
-      const h = Math.floor((s%86400)/3600);
-      const m = Math.floor((s%3600)/60);
-      if (d>0) return `${d}d ${h}h ${m}m`;
-      if (h>0) return `${h}h ${m}m`;
-      return `${m}m`;
-    };
-    function linkSolscan(tx){ return `https://solscan.io/tx/${tx}`; }
-    async function fetchJSON(name){
-      const url = `${DATA_BASE}/${name}.json?t=${Date.now()}`;
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`GET ${name}.json → HTTP ${res.status}`);
-      return await res.json();
-    }
-    function setStatus(text, mode='loading'){
-      let badge = '';
-      if (mode==='live') badge = '✅';
-      else if (mode==='error') badge = '⛔';
-      else badge = '<span class="spinner"></span>';
-      elStatus.innerHTML = `${badge} ${text}`;
-    }
-    function startCountdown(){
-      clearInterval(countdownTimer);
-      nextRefreshAt = Date.now() + REFRESH_SECONDS*1000;
-      const tick = ()=>{
-        const left = Math.max(0, Math.ceil((nextRefreshAt - Date.now())/1000));
-        elRefreshIn.textContent = `${left}s`;
-        if (left<=0){ clearInterval(countdownTimer); refreshNow(); }
-      };
-      tick();
-      countdownTimer = setInterval(tick, 1000);
+    const mask = (addr) => addr; // già mascherati dal backend
+
+    // ====== Contest header (from leaderboard.json.contest_window) ======
+    function renderContest(win){
+      if (!win || !win.start_iso || !win.end_iso){
+        elCStart.textContent = '—'; elCEnd.textContent='—'; elCStatus.textContent='—';
+        elCBar.style.width = '0%'; elCPct.textContent='0%'; return;
+      }
+      const start = Date.parse(win.start_iso);
+      const end   = Date.parse(win.end_iso);
+      elCStart.textContent = fmtLocal(win.start_iso);
+      elCEnd.textContent   = fmtLocal(win.end_iso);
+
+      const now = Date.now();
+      let status='Upcoming', pct=0, left='—';
+      if (now < start){
+        status = 'Upcoming';
+        pct = 0;
+        left = new Date(start-now).toISOString().substr(11,5) + ' to start';
+      } else if (now >= end){
+        status = 'Ended';
+        pct = 100;
+        left = '0m';
+      } else {
+        status = 'Running';
+        pct = Math.max(0, Math.min(100, ((now-start)/(end-start))*100));
+        const ms = end - now;
+        const mm = Math.max(0, Math.round(ms/60000));
+        left = (mm>=60 ? Math.floor(mm/60)+'h ' : '') + (mm%60)+'m';
+      }
+      elCStatus.innerHTML = `<span style="color:var(--buy);font-weight:800">${status}</span> · <span class="muted">Time left:</span> <strong>${left}</strong>`;
+      elCBar.style.width = pct.toFixed(1)+'%';
+      elCPct.textContent = `${pct.toFixed(0)}%`;
     }
 
     // ====== Leaderboard render ======
     function renderLeaderboard(data){
       window._lastLeaderboard = data;
-      const wallets = (data.wallets || []).slice();
+      renderContest(data.contest_window || null);
 
-      wallets.sort((a,b)=>{
+      const wallets = (data.wallets || []).slice().sort((a,b)=>{
         const fa = getField(a, sortField);
         const fb = getField(b, sortField);
         const cmp = (fa > fb) ? 1 : (fa < fb ? -1 : 0);
@@ -387,7 +389,7 @@
         if (i===2) tr.classList.add('r3');
         tr.innerHTML = `
           <td class="rank"><span class="pos">${posStr}</span> ${trophy}</td>
-          <td class="addr">${w.address || ''}</td>
+          <td class="addr">${mask(w.address)}</td>
           <td class="right">${fmtInt(w.buy)}</td>
           <td class="right">${fmtInt(w.sell)}</td>
           <td class="right"><strong>${fmtInt(w.volume)}</strong></td>
@@ -402,65 +404,9 @@
       elTotBuy.textContent = fmtInt(c.total_buy || 0);
       elTotSell.textContent = fmtInt(c.total_sell || 0);
 
-      // header info
-      const updatedStr = data.updated_at_it || data.generated_at_it || data.updated_at || data.generated_at || '—';
-      elUpdated.textContent = `Updated: ${updatedStr}`;
-      elLastUpdateShort.textContent = updatedStr;
-      elTZ.textContent = `TZ: ${data.timezone || 'Europe/Rome'}`;
       elLbCount.textContent = `${wallets.length} wallet${wallets.length===1?'':'s'}`;
       elLbLink.href = `${DATA_BASE}/leaderboard.json`;
-
-      // mini-cards: contest window & status
-      const cMeta = data.contest || {};
-      const startIso = cMeta.start_it || cMeta.start_iso || null;
-      const endIso   = cMeta.end_it   || cMeta.end_iso   || null;
-      elCStart.textContent = startIso ? startIso : '—';
-      elCEnd.textContent   = endIso   ? endIso   : 'Open-ended';
-
-      // progress
-      try{
-        const startTs = Date.parse(cMeta.start_iso || 0);
-        const endTs   = cMeta.end_iso ? Date.parse(cMeta.end_iso) : NaN;
-        const now = Date.now();
-        let pct = 0;
-        if (Number.isFinite(startTs) && Number.isFinite(endTs)){
-          pct = Math.max(0, Math.min(100, ((now - startTs) / (endTs - startTs)) * 100));
-        } else {
-          pct = 0; // open-ended: niente progress
-        }
-        elCBar.style.width = `${pct}%`;
-
-        // state + time left
-        const stateEl = elCState;
-        stateEl.classList.remove('status-running','status-pending','status-ended');
-
-        if (!Number.isFinite(startTs) || now < startTs){
-          stateEl.textContent = 'Starts soon';
-          stateEl.classList.add('status-pending');
-          elCLeftWrap.style.display = 'none';
-        } else if (Number.isFinite(endTs) && now >= endTs){
-          stateEl.textContent = 'Ended';
-          stateEl.classList.add('status-ended');
-          elCLeftWrap.style.display = 'none';
-        } else {
-          stateEl.textContent = 'Running';
-          stateEl.classList.add('status-running');
-          if (Number.isFinite(endTs)){
-            elCLeft.textContent = dur(endTs - now);
-            elCLeftWrap.style.display = '';
-          } else {
-            elCLeftWrap.style.display = 'none';
-          }
-        }
-      } catch { /* ignore */ }
-
-      // optional: next daily snapshot if provided
-      if (cMeta.next_daily_snapshot_it){
-        elCNextSnap.textContent = cMeta.next_daily_snapshot_it;
-        elCNextSnapWrap.style.display = '';
-      } else {
-        elCNextSnapWrap.style.display = 'none';
-      }
+      elLastUpdate.textContent = (data.updated_at_it || data.generated_at_it || data.updated_at || data.generated_at || '—').replace('.000','');
     }
     function getField(w, field){
       switch(field){
@@ -483,15 +429,13 @@
       });
     });
 
-    // ====== Events feed — render TUTTO il file (newest first) ======
+    // ====== Events feed (render all, newest first) ======
     function renderFeed(eventsObj){
-      const src = (eventsObj.events || [])
-        .slice()
+      const src = (eventsObj.events || []).slice()
         .sort((a,b)=> Date.parse(b.ts_iso || 0) - Date.parse(a.ts_iso || 0));
 
       elEvLink.href = `${DATA_BASE}/latest_events.json`;
       elFeed.innerHTML = '';
-
       if (!src.length){
         elFeed.innerHTML = `<div class="muted" style="padding:6px 2px">No trades in feed.</div>`;
         return;
@@ -504,7 +448,7 @@
         div.className = 'ev';
         div.innerHTML = `
           ${badge}
-          <div class="addr">${e.wallet || ''}</div>
+          <div class="addr">${mask(e.wallet)}</div>
           <div class="st">${fmtInt(e.amount)} BUMPER</div>
           <div class="time">${when} <span class="muted">(${rel})</span></div>
           <div class="tx"><a href="${linkSolscan(e.tx)}" target="_blank" rel="noopener">solscan ↗</a></div>
@@ -516,28 +460,25 @@
     // ====== Refresh flow ======
     async function refreshNow(){
       try{
-        setStatus('Loading…', 'loading');
+        setStatus('Loading…', true);
         const [lb, ev] = await Promise.all([
           fetchJSON('leaderboard'),
           fetchJSON('latest_events')
         ]);
         renderLeaderboard(lb);
         renderFeed(ev);
-        setStatus('Live', 'live');
+        setStatus('Live', false);
+        showToast('Data updated', true);
         startCountdown();
       } catch (e){
         console.error(e);
-        setStatus('Error', 'error');
-        // anche in errore continuiamo a contare per tentare di ricaricare
+        setStatus('Error');
+        showToast(e.message || 'Failed to refresh');
         startCountdown();
       }
     }
 
-    btnRefresh.addEventListener('click', ()=>{
-      // reset il countdown per avere una sensazione snappy
-      clearInterval(countdownTimer);
-      refreshNow();
-    });
+    btnRefresh.addEventListener('click', refreshNow);
 
     // boot
     (async function(){
