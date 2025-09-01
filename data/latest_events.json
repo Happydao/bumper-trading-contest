@@ -1,6 +1,6 @@
 {
-  "run_at_iso": "2025-09-01T10:54:35.770Z",
-  "run_at_it": "01/09/2025 12:54:35 Europe/Rome",
+  "run_at_iso": "2025-09-01T11:04:35.843Z",
+  "run_at_it": "01/09/2025 13:04:35 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "contest": {
@@ -11,6 +11,15 @@
     "timezone": "Europe/Rome",
     "status": "running"
   },
-  "events_count": 0,
-  "events": []
+  "events_count": 1,
+  "events": [
+    {
+      "type": "SELL",
+      "wallet": "C4Qh...8Pkt",
+      "amount": 43327.881739,
+      "tx": "7GTVSJaZEcyXpoptwBDG55vDuKUu6xGKvnnmCScXeBbYGkzHujJXBhjoXzkNMqNMNvjCf2EzZAYP8YN8d4V449n",
+      "ts_iso": "2025-09-01T11:00:06.000Z",
+      "ts_it": "01/09/2025 13:00:06 Europe/Rome"
+    }
+  ]
 }
