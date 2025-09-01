@@ -17,18 +17,15 @@
       --accent2:#ff7a59;
       --buy:#20e3a2;
       --sell:#ff5d7a;
-      --gold:#ffd166;
-      --silver:#cbd5e1;
-      --bronze:#f4a261;
-      --card-border: rgba(255,55,95,.22);
+      --gold:#ffd166; --silver:#cbd5e1; --bronze:#f4a261;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
       background:
-        radial-gradient(1100px 600px at 20% -10%, rgba(255,55,95,.12), transparent 60%),
-        radial-gradient(900px 500px at 80% 8%, rgba(255,122,89,.10), transparent 60%),
+        radial-gradient(1100px 600px at 15% -10%, rgba(255,55,95,.12), transparent 60%),
+        radial-gradient(900px 500px at 85% 8%, rgba(255,122,89,.10), transparent 60%),
         linear-gradient(180deg, rgba(255,55,95,.05), transparent 40%),
         var(--bg);
       color:var(--fg);
@@ -37,108 +34,78 @@
     a:hover{text-decoration:underline}
     .wrap{max-width:1200px; margin:0 auto; padding:20px}
 
-    /* HEADER */
-    header{
-      display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:10px;
-    }
-    h1{
-      margin:0; font-size:34px; line-height:1.05; letter-spacing:.2px; font-weight:800;
-      text-shadow: 0 6px 28px rgba(0,0,0,.35);
-    }
-    .tzline{margin-top:6px; color:var(--muted); font-size:12px}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:8px;}
+    h1{font-size:40px; margin:0; letter-spacing:.2px}
+    .muted{color:var(--muted)}
+    .tzline{margin-top:6px; font-size:13px}
+
     .btn{
-      border:1px solid rgba(255,255,255,.10); background:#1a1116; color:#fff;
-      padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
+      border:1px solid rgba(255,255,255,.08); background:#1a1116; color:#fff;
+      padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
       transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
-    .pill{
-      padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#fff; font-size:12px;
-      border:1px solid rgba(255,255,255,.08);
+    .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-size:12px}
+
+    .topgrid{display:grid; grid-template-columns: 1.1fr .9fr auto; gap:12px; align-items:start}
+    @media (max-width: 980px){ .topgrid{ grid-template-columns:1fr; } }
+
+    .panel{
+      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
+      border-radius:16px; padding:14px 16px;
+      border:1px solid rgba(255,55,95,.22);
+      box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 4px 30px rgba(0,0,0,.25);
     }
-    .controls{ display:flex; align-items:center; gap:10px; }
+    .panel h3{margin:0 0 8px 0; font-size:16px; letter-spacing:.2px}
+    .kv{display:grid; grid-template-columns: 82px 1fr; gap:6px 10px; font-size:14px; margin-bottom:8px}
+    .kv .k{color:var(--muted)}
+    .status{font-weight:800}
+    .ok{color:var(--buy)} .end{color:var(--sell)} .ns{color:#b7b1c5}
+
+    .bar{height:10px; background:#1b1217; border:1px solid rgba(255,55,95,.25); border-radius:999px; overflow:hidden}
+    .bar > i{display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent2)); width:0%}
+    .barline{display:flex; justify-content:space-between; align-items:center; margin-top:6px; font-size:12px; color:var(--muted)}
+    .bignum{font-size:22px; font-weight:800; color:#fff}
 
     /* HERO */
     .hero{
-      position:relative; border-radius:16px; overflow:hidden; margin:12px 0 16px;
-      border:1px solid var(--card-border);
-      background:#140b0f; min-height: 220px;
+      position:relative; border-radius:16px; overflow:hidden; margin:14px 0 18px;
+      border:1px solid rgba(255,55,95,.22); background:#140b0f; min-height:240px;
       box-shadow: 0 0 0 1px rgba(255,55,95,.18) inset, 0 14px 40px rgba(255,55,95,.15), 0 10px 30px rgba(0,0,0,.35);
     }
     .hero::before{
       content:""; position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(10,5,7,.70), rgba(10,5,7,.35) 45%, rgba(10,5,7,.08) 85%),
+        linear-gradient(180deg, rgba(10,5,7,.70), rgba(10,5,7,.30) 45%, rgba(10,5,7,.06) 85%),
         url('./bumpertrading.png') center / cover no-repeat;
-      filter: saturate(1.05) contrast(1.02) brightness(1.02);
+      filter:saturate(1.05) contrast(1.02) brightness(1.02);
     }
 
-    /* TOP ROW: 2 compact cards */
-    .topgrid{display:grid; grid-template-columns: 1.2fr .8fr; gap:12px; margin-top:8px}
-    @media (max-width: 980px){ .topgrid{ grid-template-columns: 1fr; } }
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
-      border-radius:16px; padding:14px 16px;
-      border:1px solid var(--card-border);
-      box-shadow: 0 0 0 1px rgba(255,55,95,.12) inset, 0 0 22px rgba(255,55,95,.10), 0 4px 30px rgba(0,0,0,.25);
-    }
-    .card h3{ margin:0 0 8px 0; font-size:14px; letter-spacing:.2px; color:#fff }
-
-    .kv{ display:grid; grid-template-columns: auto 1fr; gap:4px 10px; font-size:13px; color:#dcd6e5; }
-    .kv .k{ color:var(--muted); }
-    .big{ font-size:18px; font-weight:800 }
-    .muted{ color:var(--muted) }
-
-    .progress{
-      margin-top:10px; position:relative; height:10px; border-radius:999px;
-      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10);
-      overflow:hidden;
-    }
-    .progress > span{
-      display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent2));
-      width:0%;
-    }
-    .pct{ font-size:12px; margin-top:6px; color:#e8d8e8 }
-
-    /* GRID MAIN */
     .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
     @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
 
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
-      border-radius:16px; padding:16px;
-      border:1px solid var(--card-border);
-      box-shadow: 0 0 0 1px rgba(255,55,95,.12) inset, 0 0 22px rgba(255,55,95,.10), 0 4px 30px rgba(0,0,0,.25);
-    }
-    .panel h3{ margin:0 0 12px 0; font-size:16px; letter-spacing:.2px; }
-
     .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:10px;}
     @media (max-width: 700px){ .cards{ grid-template-columns:1fr; } }
-    .mini{ background:#110a0e; border-radius:14px; padding:10px; border:1px solid var(--card-border);
-           box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25); }
-    .k{font-size:12px; color:var(--muted); margin-bottom:2px}
+    .card{background:#110a0e; border-radius:14px; padding:12px; border:1px solid rgba(255,55,95,.22); box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 8px 26px rgba(0,0,0,.25);}
+    .k{font-size:12px; color:var(--muted); margin-bottom:4px}
     .v{font-size:22px; font-weight:800}
 
-    .leader{ border-radius:12px; overflow:auto; border:1px solid var(--card-border); max-height: 56vh;
-             box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset; }
+    .leader{border-radius:12px; overflow:auto; border:1px solid rgba(255,55,95,.22); max-height:56vh; box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;}
     table{width:100%; border-collapse:collapse; font-size:14px}
-    thead th{ position:sticky; top:0; background:#160c10; z-index:1; padding:10px; text-align:left; font-weight:800; letter-spacing:.2px; border-bottom:1px solid rgba(255,55,95,.35); cursor:pointer; user-select:none; }
+    thead th{position:sticky; top:0; background:#160c10; z-index:1; padding:10px; text-align:left; font-weight:800; letter-spacing:.2px; border-bottom:1px solid rgba(255,55,95,.35); cursor:pointer; user-select:none;}
     tbody td{ padding:10px; border-bottom:1px dashed rgba(255,255,255,.10); }
     tbody tr:hover{ background: rgba(255,55,95,.08); }
     .right{text-align:right}
     .rank{width:86px; font-weight:800; white-space:nowrap}
     .pos{margin-right:6px}
     .addr{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;}
+    .trophy{ font-size:18px } .r1 .trophy{ color: var(--gold) } .r2 .trophy{ color: var(--silver) } .r3 .trophy{ color: var(--bronze) }
 
-    .badge{ font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px; border:1px solid rgba(255,255,255,.12); }
+    .feed{display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px; border:1px solid rgba(255,55,95,.22); padding:10px; box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset;}
+    .ev{display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid rgba(255,55,95,.22); padding:10px; border-radius:12px; box-shadow: 0 0 0 1px rgba(255,55,95,.08) inset;}
+    .badge{font-size:11px; font-weight:800; padding:4px 8px; border-radius:999px; letter-spacing:.25px; border:1px solid rgba(255,255,255,.12);}
     .buy{ color:var(--buy); background: rgba(32,227,162,.10); }
     .sell{ color:var(--sell); background: rgba(255,93,122,.12); border-color: rgba(255,93,122,.24); }
-    .trophy{ font-size:18px }
-    .r1 .trophy{ color: var(--gold) } .r2 .trophy{ color: var(--silver) } .r3 .trophy{ color: var(--bronze) }
-
-    .feed{ display:flex; flex-direction:column; gap:10px; max-height:56vh; overflow:auto; border-radius:12px; border:1px solid var(--card-border); padding:10px; box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset; }
-    .ev{ display:flex; align-items:center; gap:10px; background:#150c10; border:1px solid var(--card-border); padding:10px; border-radius:12px; box-shadow: 0 0 0 1px rgba(255,55,95,.08) inset; }
     .ev .time{ color:var(--muted); font-size:12px; min-width:110px }
     .ev .tx{ margin-left:auto; font-size:12px }
     .foot{ margin-top:12px; color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center }
@@ -156,62 +123,55 @@
     <header>
       <div>
         <h1>$BUMPER volume trading competiton</h1>
-        <div class="tzline">Times shown in <strong>Europe/Rome</strong></div>
+        <div id="tzline" class="tzline muted">Times shown in <strong>Europe/Rome</strong></div>
       </div>
       <div class="controls">
         <button class="btn" id="btn-refresh">Refresh now</button>
-        <span class="pill small" id="status-pill"><span class="spinner"></span> Loading…</span>
+        <span class="pill" id="live-pill">Live</span>
       </div>
     </header>
 
-    <!-- TOP ROW: 2 compact cards -->
+    <!-- Top: Contest + Refresh -->
     <div class="topgrid">
-      <!-- Contest card -->
-      <section class="card" id="contest-card">
+      <section class="panel" id="contest-card">
         <h3>Contest</h3>
-        <div class="kv" style="margin-bottom:6px">
-          <div class="k">Start:</div><div class="v big" id="c-start">—</div>
-          <div class="k">End:</div><div class="v big" id="c-end">—</div>
-          <div class="k">Status:</div><div class="v" id="c-status">—</div>
+        <div class="kv">
+          <div class="k">Start:</div>  <div id="c-start" class="bignum muted">—</div>
+          <div class="k">End:</div>    <div id="c-end" class="bignum muted">—</div>
+          <div class="k">Status:</div> <div id="c-status" class="bignum muted">—</div>
         </div>
-        <div class="progress" title="progress"><span id="c-bar"></span></div>
-        <div class="pct" id="c-pct">0%</div>
+        <div class="bar"><i id="c-bar" style="width:0%"></i></div>
+        <div class="barline">
+          <span id="c-percent">0%</span>
+          <span id="c-left">—</span>
+        </div>
       </section>
 
-      <!-- Refresh card -->
-      <section class="card">
+      <section class="panel">
         <h3>Refresh</h3>
         <div class="kv">
-          <div class="k">Next refresh in:</div><div class="v big" id="refresh-in">—</div>
-          <div class="k">Last update:</div><div class="v big" id="last-update">—</div>
+          <div class="k">Next refresh in:</div> <div class="bignum" id="next-ref">—</div>
+          <div class="k">Last update:</div>    <div class="bignum" id="last-upd">—</div>
         </div>
       </section>
+
+      <div class="panel" style="display:flex;align-items:center;gap:10px;justify-content:center">
+        <span id="status-pill"><span class="spinner"></span> Loading…</span>
+      </div>
     </div>
 
     <!-- HERO -->
     <div class="hero" aria-hidden="true"></div>
 
-    <!-- MAIN GRID -->
+    <!-- Body -->
     <div class="grid">
-      <!-- Leaderboard -->
       <section class="panel">
         <h3>Leaderboard (cumulative)</h3>
-
         <div class="cards">
-          <div class="mini">
-            <div class="k">Total Volume (BUMPER)</div>
-            <div class="v" id="tot-volume">—</div>
-          </div>
-          <div class="mini">
-            <div class="k">Total Buy (BUMPER)</div>
-            <div class="v" id="tot-buy">—</div>
-          </div>
-          <div class="mini">
-            <div class="k">Total Sell (BUMPER)</div>
-            <div class="v" id="tot-sell">—</div>
-          </div>
+          <div class="card"><div class="k">Total Volume (BUMPER)</div><div class="v" id="tot-volume">—</div></div>
+          <div class="card"><div class="k">Total Buy (BUMPER)</div><div class="v" id="tot-buy">—</div></div>
+          <div class="card"><div class="k">Total Sell (BUMPER)</div><div class="v" id="tot-sell">—</div></div>
         </div>
-
         <div class="leader">
           <table id="tbl">
             <thead>
@@ -236,7 +196,6 @@
         </div>
       </section>
 
-      <!-- Latest events feed -->
       <section class="panel">
         <h3>Latest Trades</h3>
         <div class="feed" id="feed"></div>
@@ -255,10 +214,12 @@
   <script>
     // ====== CONFIG ======
     const DATA_BASE = window.DATA_BASE || 'https://happydao.github.io/bumper-trading-contest/data';
-    const REFRESH_SECONDS = 60;  // UI refresh; no commits on GitHub
+    const REFRESH_SECONDS = 60;
 
     // ====== DOM ======
-    const elRefreshIn = document.getElementById('refresh-in');
+    const elTZLine = document.getElementById('tzline');
+    const elNextRef = document.getElementById('next-ref');
+    const elLastUpd = document.getElementById('last-upd');
     const elStatus = document.getElementById('status-pill');
     const elTotVol = document.getElementById('tot-volume');
     const elTotBuy = document.getElementById('tot-buy');
@@ -268,17 +229,15 @@
     const elEvLink = document.getElementById('ev-link');
     const elTBody = document.getElementById('tbody');
     const elFeed = document.getElementById('feed');
-    const elLastUpdate = document.getElementById('last-update');
+    const btnRefresh = document.getElementById('btn-refresh');
 
-    // contest card
+    // contest card elements
     const elCStart = document.getElementById('c-start');
     const elCEnd = document.getElementById('c-end');
     const elCStatus = document.getElementById('c-status');
     const elCBar = document.getElementById('c-bar');
-    const elCPct = document.getElementById('c-pct');
-
-    const toast = document.getElementById('toast');
-    const btnRefresh = document.getElementById('btn-refresh');
+    const elCPercent = document.getElementById('c-percent');
+    const elCLeft = document.getElementById('c-left');
 
     let sortField = 'volume';
     let sortDir = 'desc';
@@ -287,14 +246,25 @@
 
     // ====== Utils ======
     const fmtInt = (n) => Math.floor(Number(n||0)).toLocaleString('en-US');
-    function linkSolscan(tx){ return `https://solscan.io/tx/${tx}`; }
+    const ago = (iso) => {
+      const d = new Date(iso);
+      const sec = Math.max(0, Math.round((Date.now() - d.getTime())/1000));
+      if (sec < 60) return `${sec}s ago`;
+      const m = Math.round(sec/60); if (m < 60) return `${m}m ago`;
+      const h = Math.round(m/60); return `${h}h ago`;
+    };
+    const mask = (addr) => addr; // backend already masked
+    const linkSolscan = (tx)=> `https://solscan.io/tx/${tx}`;
+    const itDateTime = (iso, tz) => new Date(iso).toLocaleString('it-IT', { timeZone: tz, hour12:false });
+
     function showToast(msg, ok=false){
+      const toast = document.getElementById('toast');
       toast.textContent = msg;
       toast.classList.remove('hidden');
       toast.style.border = ok ? '1px solid rgba(32,227,162,.35)' : '1px solid rgba(255,93,122,.35)';
       toast.style.color = ok ? 'var(--buy)' : 'var(--sell)';
       clearTimeout(showToast._t);
-      showToast._t = setTimeout(()=> toast.classList.add('hidden'), 4000);
+      showToast._t = setTimeout(()=> toast.classList.add('hidden'), 3500);
     }
     async function fetchJSON(name){
       const url = `${DATA_BASE}/${name}.json?t=${Date.now()}`;
@@ -306,80 +276,77 @@
       elStatus.innerHTML = (spinning ? '<span class="spinner"></span> ' : '') + text;
     }
     function startCountdown(){
-      refreshCountdown = REFRESH_SECONDS;
-      elRefreshIn.textContent = `${refreshCountdown}s`;
       clearInterval(countdownTimer);
+      refreshCountdown = REFRESH_SECONDS;
       countdownTimer = setInterval(()=>{
         refreshCountdown--;
+        elNextRef.textContent = `${refreshCountdown}s`;
         if (refreshCountdown <= 0){
           clearInterval(countdownTimer);
           refreshNow();
-        } else {
-          elRefreshIn.textContent = `${refreshCountdown}s`;
         }
       }, 1000);
     }
-    function fmtLocal(iso){
-      try{
-        const d = new Date(iso);
-        return d.toLocaleString('it-IT', {hour12:false});
-      }catch{ return iso || '—'; }
-    }
-    const ago = (iso) => {
-      const d = new Date(iso);
-      const sec = Math.max(0, Math.round((Date.now() - d.getTime())/1000));
-      if (sec < 60) return `${sec}s ago`;
-      const m = Math.round(sec/60); if (m < 60) return `${m}m ago`;
-      const h = Math.round(m/60); return `${h}h ago`;
-    };
-    const mask = (addr) => addr; // già mascherati dal backend
 
-    // ====== Contest header (from leaderboard.json.contest_window) ======
-    function renderContest(win){
-      if (!win || !win.start_iso || !win.end_iso){
-        elCStart.textContent = '—'; elCEnd.textContent='—'; elCStatus.textContent='—';
-        elCBar.style.width = '0%'; elCPct.textContent='0%'; return;
-      }
-      const start = Date.parse(win.start_iso);
-      const end   = Date.parse(win.end_iso);
-      elCStart.textContent = fmtLocal(win.start_iso);
-      elCEnd.textContent   = fmtLocal(win.end_iso);
-
+    // ===== Contest helpers =====
+    function progressInfo(c){
+      if (!c || !c.start_iso || !c.end_iso) return {percent:0, label:'—', status:'ns'};
       const now = Date.now();
-      let status='Upcoming', pct=0, left='—';
-      if (now < start){
-        status = 'Upcoming';
-        pct = 0;
-        left = new Date(start-now).toISOString().substr(11,5) + ' to start';
-      } else if (now >= end){
-        status = 'Ended';
-        pct = 100;
-        left = '0m';
-      } else {
-        status = 'Running';
-        pct = Math.max(0, Math.min(100, ((now-start)/(end-start))*100));
-        const ms = end - now;
-        const mm = Math.max(0, Math.round(ms/60000));
-        left = (mm>=60 ? Math.floor(mm/60)+'h ' : '') + (mm%60)+'m';
+      const s = Date.parse(c.start_iso);
+      const e = Date.parse(c.end_iso);
+      if (now < s){
+        const sec = Math.max(0, Math.round((s-now)/1000));
+        return { percent:0, label:`starts in ${hum(sec)}`, status:'ns' };
       }
-      elCStatus.innerHTML = `<span style="color:var(--buy);font-weight:800">${status}</span> · <span class="muted">Time left:</span> <strong>${left}</strong>`;
-      elCBar.style.width = pct.toFixed(1)+'%';
-      elCPct.textContent = `${pct.toFixed(0)}%`;
+      if (now >= e){
+        return { percent:100, label:`ended`, status:'end' };
+      }
+      const percent = Math.max(0, Math.min(100, ((now-s)/(e-s))*100));
+      const sec = Math.max(0, Math.round((e-now)/1000));
+      return { percent, label:`time left: ${hum(sec)}`, status:'ok' };
+    }
+    function hum(sec){
+      if (sec < 60) return `${sec}s`;
+      const m = Math.floor(sec/60); if (m < 60) return `${m}m`;
+      const h = Math.floor(m/60); const r = m%60;
+      return r ? `${h}h ${r}m` : `${h}h`;
     }
 
-    // ====== Leaderboard render ======
+    function renderContest(meta, lastRunIso){
+      const tz = (meta && meta.timezone) || 'Europe/Rome';
+      elTZLine.innerHTML = `Times shown in <strong>${tz}</strong>`;
+      if (!meta || !meta.start_iso || !meta.end_iso){
+        elCStart.textContent = '—'; elCEnd.textContent = '—';
+        elCStatus.textContent = '—'; elCStatus.className = 'bignum muted';
+        elCBar.style.width = '0%'; elCPercent.textContent = '0%'; elCLeft.textContent = '—';
+        elLastUpd.textContent = lastRunIso ? itDateTime(lastRunIso, tz) : '—';
+        return;
+      }
+      elCStart.textContent = itDateTime(meta.start_iso, tz);
+      elCEnd.textContent   = itDateTime(meta.end_iso, tz);
+
+      const p = progressInfo(meta);
+      elCBar.style.width = `${p.percent.toFixed(1)}%`;
+      elCPercent.textContent = `${Math.round(p.percent)}%`;
+      elCLeft.textContent = p.label;
+      elCStatus.textContent = p.status==='ok' ? 'Running' : (p.status==='end' ? 'Ended' : 'Not started');
+      elCStatus.className = `bignum status ${p.status}`;
+      elLastUpd.textContent = lastRunIso ? itDateTime(lastRunIso, tz) : '—';
+    }
+
+    // ===== Leaderboard render =====
     function renderLeaderboard(data){
       window._lastLeaderboard = data;
-      renderContest(data.contest_window || null);
+      const wallets = (data.wallets || []).slice();
 
-      const wallets = (data.wallets || []).slice().sort((a,b)=>{
+      wallets.sort((a,b)=>{
         const fa = getField(a, sortField);
         const fb = getField(b, sortField);
         const cmp = (fa > fb) ? 1 : (fa < fb ? -1 : 0);
         return sortDir === 'asc' ? cmp : -cmp;
       });
 
-      elTBody.innerHTML = '';
+      const tbody = elTBody; tbody.innerHTML = '';
       wallets.forEach((w,i)=>{
         const posStr = `${i+1}°`;
         const trophy = i<3 ? `<span class="trophy">🏆</span>` : '';
@@ -396,17 +363,15 @@
           <td>${w.trades ?? 0}</td>
           <td class="small">${w.last_tx_iso ? new Date(w.last_tx_iso).toISOString().replace('.000','') : '—'}</td>
         `;
-        elTBody.appendChild(tr);
+        tbody.appendChild(tr);
       });
 
       const c = data.cumulative || { total_buy:0, total_sell:0, total_volume:0 };
       elTotVol.textContent = fmtInt(c.total_volume || 0);
       elTotBuy.textContent = fmtInt(c.total_buy || 0);
       elTotSell.textContent = fmtInt(c.total_sell || 0);
-
       elLbCount.textContent = `${wallets.length} wallet${wallets.length===1?'':'s'}`;
       elLbLink.href = `${DATA_BASE}/leaderboard.json`;
-      elLastUpdate.textContent = (data.updated_at_it || data.generated_at_it || data.updated_at || data.generated_at || '—').replace('.000','');
     }
     function getField(w, field){
       switch(field){
@@ -429,11 +394,11 @@
       });
     });
 
-    // ====== Events feed (render all, newest first) ======
+    // ===== Events feed =====
     function renderFeed(eventsObj){
-      const src = (eventsObj.events || []).slice()
+      const src = (eventsObj.events || [])
+        .slice()
         .sort((a,b)=> Date.parse(b.ts_iso || 0) - Date.parse(a.ts_iso || 0));
-
       elEvLink.href = `${DATA_BASE}/latest_events.json`;
       elFeed.innerHTML = '';
       if (!src.length){
@@ -457,7 +422,7 @@
       }
     }
 
-    // ====== Refresh flow ======
+    // ===== Refresh flow =====
     async function refreshNow(){
       try{
         setStatus('Loading…', true);
@@ -465,11 +430,15 @@
           fetchJSON('leaderboard'),
           fetchJSON('latest_events')
         ]);
+        // contest meta: prefer from latest_events.json
+        const contest = ev.contest || lb.contest || null;
+        renderContest(contest, ev.run_at_iso || lb.updated_at || null);
         renderLeaderboard(lb);
         renderFeed(ev);
         setStatus('Live', false);
-        showToast('Data updated', true);
+        elNextRef.textContent = `${REFRESH_SECONDS}s`;
         startCountdown();
+        showToast('Data updated', true);
       } catch (e){
         console.error(e);
         setStatus('Error');
