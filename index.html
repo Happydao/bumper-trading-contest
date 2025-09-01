@@ -15,8 +15,8 @@
       --fg:#f2eaf2;
       --accent:#ff375f;       /* neon red */
       --accent2:#ff7a59;      /* hot orange */
-      --buy:#20e3a2;          /* green for BUY */
-      --sell:#ff5d7a;         /* red for SELL */
+      --buy:#20e3a2;          /* green */
+      --sell:#ff5d7a;         /* red   */
       --gold:#ffd166;
       --silver:#cbd5e1;
       --bronze:#f4a261;
@@ -44,6 +44,10 @@
       padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); color:#fff; font-size:12px;
       border:1px solid rgba(255,255,255,.08);
     }
+    .pill.status{font-weight:800; letter-spacing:.2px}
+    .pill.upcoming{border-color:rgba(255,255,255,.20)}
+    .pill.running{border-color:rgba(32,227,162,.35); color:var(--buy)}
+    .pill.ended{border-color:rgba(255,93,122,.35); color:var(--sell)}
     .btn{
       border:1px solid rgba(255,255,255,.08); background:#1a1116; color:#fff;
       padding:8px 12px; border-radius:10px; font-weight:600; cursor:pointer;
@@ -165,6 +169,10 @@
           <span class="sep">·</span>
           <span id="tz">TZ: —</span>
           <span class="sep">·</span>
+          <span id="contest">Contest: —</span>
+          <span class="sep">·</span>
+          <span id="status" class="pill status">—</span>
+          <span class="sep">·</span>
           <span id="refresh-in" class="pill">refreshing…</span>
         </div>
       </div>
@@ -206,7 +214,7 @@
                 <th class="right" data-sort="sell">Sell</th>
                 <th class="right" data-sort="volume">Volume</th>
                 <th data-sort="trades">Trades</th>
-                <th data-sort="last">Last Tx (UTC)</th>
+                <th data-sort="last">Last Tx (IT)</th>
               </tr>
             </thead>
             <tbody id="tbody"></tbody>
@@ -244,6 +252,8 @@
     // ====== DOM ======
     const elUpdated = document.getElementById('updated');
     const elTZ = document.getElementById('tz');
+    const elContest = document.getElementById('contest');
+    const elStatusPill = document.getElementById('status');
     const elRefreshIn = document.getElementById('refresh-in');
     const elStatus = document.getElementById('status-pill');
     const elTotVol = document.getElementById('tot-volume');
@@ -266,6 +276,15 @@
     const fmtInt = (n) => {
       const v = Math.floor(Number(n || 0));
       return v.toLocaleString('en-US');
+    };
+    const fmtLocalIT = (iso, tz='Europe/Rome') => {
+      try{
+        return new Date(iso).toLocaleString('it-IT', {
+          timeZone: tz, hour12:false,
+          year:'numeric', month:'2-digit', day:'2-digit',
+          hour:'2-digit', minute:'2-digit', second:'2-digit'
+        });
+      } catch { return iso || '—'; }
     };
     const ago = (iso) => {
       const d = new Date(iso);
@@ -308,10 +327,26 @@
       }, 1000);
     }
 
+    // ====== Contest header ======
+    function renderContest(meta){
+      if (!meta) { elContest.textContent = '—'; elStatusPill.textContent='—'; return; }
+      const tz = meta.timezone || 'Europe/Rome';
+      const sIt = meta.start_it || (meta.start_iso ? fmtLocalIT(meta.start_iso, tz) : '—');
+      const eIt = meta.end_it   || (meta.end_iso   ? fmtLocalIT(meta.end_iso, tz)   : '—');
+      elContest.textContent = `${sIt} → ${eIt}`;
+      elTZ.textContent = `TZ: ${tz}`;
+      elStatusPill.textContent = meta.status || '—';
+      elStatusPill.classList.remove('upcoming','running','ended');
+      if (meta.status) elStatusPill.classList.add(meta.status);
+    }
+
     // ====== Leaderboard render ======
     function renderLeaderboard(data){
       window._lastLeaderboard = data;
       const wallets = (data.wallets || []).slice();
+
+      // contest meta
+      if (data.contest) renderContest(data.contest);
 
       wallets.sort((a,b)=>{
         const fa = getField(a, sortField);
@@ -321,6 +356,7 @@
       });
 
       elTBody.innerHTML = '';
+      const tz = data.timezone || 'Europe/Rome';
       wallets.forEach((w,i)=>{
         const posStr = `${i+1}°`;
         const trophy = i<3 ? `<span class="trophy">🏆</span>` : '';
@@ -335,7 +371,7 @@
           <td class="right">${fmtInt(w.sell)}</td>
           <td class="right"><strong>${fmtInt(w.volume)}</strong></td>
           <td>${w.trades ?? 0}</td>
-          <td class="small">${w.last_tx_iso ? new Date(w.last_tx_iso).toISOString().replace('.000','') : '—'}</td>
+          <td class="small">${w.last_tx_iso ? fmtLocalIT(w.last_tx_iso, tz) : '—'}</td>
         `;
         elTBody.appendChild(tr);
       });
@@ -346,7 +382,6 @@
       elTotSell.textContent = fmtInt(c.total_sell || 0);
 
       elUpdated.textContent = `Updated: ${data.updated_at_it || data.updated_at || data.generated_at_it || data.generated_at || '—'}`;
-      elTZ.textContent = `TZ: ${data.timezone || 'Europe/Rome'}`;
       elLbCount.textContent = `${wallets.length} wallet${wallets.length===1?'':'s'}`;
       elLbLink.href = `${DATA_BASE}/leaderboard.json`;
     }
@@ -371,8 +406,11 @@
       });
     });
 
-    // ====== Events feed — render TUTTO il file (newest first) ======
+    // ====== Events feed — show ALL events (newest first) ======
     function renderFeed(eventsObj){
+      // usa contest meta anche da qui se manca in leaderboard
+      if (eventsObj && eventsObj.contest) renderContest(eventsObj.contest);
+
       const src = (eventsObj.events || [])
         .slice()
         .sort((a,b)=> Date.parse(b.ts_iso || 0) - Date.parse(a.ts_iso || 0));
@@ -402,6 +440,9 @@
     }
 
     // ====== Refresh flow ======
+    function setStatusText(ok){
+      setStatus(ok ? 'Live' : 'Error', !!ok===false);
+    }
     async function refreshNow(){
       try{
         setStatus('Loading…', true);
@@ -411,12 +452,12 @@
         ]);
         renderLeaderboard(lb);
         renderFeed(ev);
-        setStatus('Live', false);
+        setStatusText(true);
         showToast('Data updated', true);
         startCountdown();
       } catch (e){
         console.error(e);
-        setStatus('Error');
+        setStatusText(false);
         showToast(e.message || 'Failed to refresh');
         startCountdown();
       }
