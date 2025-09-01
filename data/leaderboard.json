@@ -1,6 +1,6 @@
 {
-  "updated_at": "2025-09-01T14:14:35.895Z",
-  "updated_at_it": "01/09/2025 16:14:35 Europe/Rome",
+  "updated_at": "2025-09-01T14:25:44.056Z",
+  "updated_at_it": "01/09/2025 16:25:44 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "contest": {
@@ -9,11 +9,11 @@
     "end_iso": "2025-09-01T14:20:00.000Z",
     "end_it": "01/09/2025 16:20:00 Europe/Rome",
     "timezone": "Europe/Rome",
-    "status": "running"
+    "status": "ended"
   },
   "cumulative": {
     "total_buy": 150530.46310700002,
-    "total_sell": 74639.95482500001,
+    "total_sell": 74639.954825,
     "total_volume": 225170.417932
   },
   "wallets": [
