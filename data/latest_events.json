@@ -1,33 +1,16 @@
 {
-  "run_at_iso": "2025-09-01T09:09:58.095Z",
-  "run_at_it": "01/09/2025 11:09:58 Europe/Rome",
+  "run_at_iso": "2025-09-01T09:28:24.832Z",
+  "run_at_it": "01/09/2025 11:28:24 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
-  "events_count": 3,
-  "events": [
-    {
-      "type": "BUY",
-      "wallet": "92ps...XtYW",
-      "amount": 38082.938518,
-      "tx": "2unE5VbxhdnjVsV19wP6CfMD18J4NCczcC9ucGAp7Lh6sHSBuVreRyetuGbiy4r21ZaEEaxwvbP6zGwY1omxFen7",
-      "ts_iso": "2025-09-01T09:04:59.000Z",
-      "ts_it": "01/09/2025 11:04:59 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "92ps...XtYW",
-      "amount": 37781.592056,
-      "tx": "zWX6Kz4p1kjmyTCHCBAXF7vJty8b1CXFvMhdRmiGURUHjwpCov6wFayA5jmxrHdvfxNAHP1cpTuvvdMPoEeqzek",
-      "ts_iso": "2025-09-01T09:07:40.000Z",
-      "ts_it": "01/09/2025 11:07:40 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "92ps...XtYW",
-      "amount": 37569.702611,
-      "tx": "3XsaFK7WVgJLdrrwi59uRsvrD1T3puMvzezdkebk7fwi6i48LFE3ZAawrEXiLZtbLjTZvqTR5BkuMb7ssCfSPNaR",
-      "ts_iso": "2025-09-01T09:09:22.000Z",
-      "ts_it": "01/09/2025 11:09:22 Europe/Rome"
-    }
-  ]
+  "contest": {
+    "start_iso": "2025-09-01T09:20:00.000Z",
+    "start_it": "01/09/2025 11:20:00 Europe/Rome",
+    "end_iso": "2025-09-01T10:20:00.000Z",
+    "end_it": "01/09/2025 12:20:00 Europe/Rome",
+    "timezone": "Europe/Rome",
+    "status": "running"
+  },
+  "events_count": 0,
+  "events": []
 }
