@@ -1,6 +1,6 @@
 {
-  "run_at_iso": "2025-09-01T14:14:35.895Z",
-  "run_at_it": "01/09/2025 16:14:35 Europe/Rome",
+  "run_at_iso": "2025-09-01T14:25:45.072Z",
+  "run_at_it": "01/09/2025 16:25:45 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "contest": {
@@ -9,7 +9,7 @@
     "end_iso": "2025-09-01T14:20:00.000Z",
     "end_it": "01/09/2025 16:20:00 Europe/Rome",
     "timezone": "Europe/Rome",
-    "status": "running"
+    "status": "ended"
   },
   "events_count": 0,
   "events": []
