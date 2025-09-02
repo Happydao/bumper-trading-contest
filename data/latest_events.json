@@ -1,6 +1,6 @@
 {
-  "run_at_iso": "2025-09-02T10:57:03.654Z",
-  "run_at_it": "02/09/2025 12:57:03 Europe/Rome",
+  "run_at_iso": "2025-09-02T11:10:32.922Z",
+  "run_at_it": "02/09/2025 13:10:32 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "contest": {
@@ -11,55 +11,6 @@
     "timezone": "Europe/Rome",
     "status": "running"
   },
-  "events_count": 6,
-  "events": [
-    {
-      "type": "BUY",
-      "wallet": "TSqX...o76T",
-      "amount": 30679.615969,
-      "tx": "3cWHeXXRJP3qh3XnW9vRwS5JhyyWrTWnWkvogUkvdMSd5okiFc24ziVSbKfDXkc8hZL1xpqpoW3nxejtJJC8md9w",
-      "ts_iso": "2025-09-01T18:21:17.000Z",
-      "ts_it": "01/09/2025 20:21:17 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "TSqX...o76T",
-      "amount": 30581.029856,
-      "tx": "WE7g5omFqxLwigvKzvEYfodRTnAE9phPgayUEoWmF6oVXpRD6aAscVsfh2gttKuTAp8CTZxxWLVTje73HYgSyGJ",
-      "ts_iso": "2025-09-01T18:21:27.000Z",
-      "ts_it": "01/09/2025 20:21:27 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "TSqX...o76T",
-      "amount": 30506.569941,
-      "tx": "yzWmhCEGikrmGPGnhXgYRBs5Pre69xNuLgg6Zf6mo1wZJ1TJwqQH6VAoRio6z8jsrMynPzfR1iMCSE5jhdmfE9n",
-      "ts_iso": "2025-09-01T18:22:19.000Z",
-      "ts_it": "01/09/2025 20:22:19 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "TSqX...o76T",
-      "amount": 30432.241744000003,
-      "tx": "Piw9cM5YSAUshc3dfLLtLMpFBkdgwDe17wFZ5t3rnG7o2Yofa1pH28h5t9Hz7bP1m9iU4T9mC9jmEtS7zSJ9s4Z",
-      "ts_iso": "2025-09-01T18:22:46.000Z",
-      "ts_it": "01/09/2025 20:22:46 Europe/Rome"
-    },
-    {
-      "type": "SELL",
-      "wallet": "3wDn...HDud",
-      "amount": 31000,
-      "tx": "5E3h9s2cRRr3r4WXDLYPMa7vUb2EX15enrubQfrhKmvffqVhGqxC8XScSk6KKCvCsS9ixF4e4fGDbbQuXxoLK2Fz",
-      "ts_iso": "2025-09-01T12:23:34.000Z",
-      "ts_it": "01/09/2025 14:23:34 Europe/Rome"
-    },
-    {
-      "type": "BUY",
-      "wallet": "3wDn...HDud",
-      "amount": 28575.095035,
-      "tx": "3kYUo6uQ5rWWNCAkP4XG6KdEcRzJzZfRxSsgW1qxphKCXjB72ktv3DvMGiTEchTGvDp1sogn5PoUJT5y7Ayh3voP",
-      "ts_iso": "2025-09-01T12:34:34.000Z",
-      "ts_it": "01/09/2025 14:34:34 Europe/Rome"
-    }
-  ]
+  "events_count": 0,
+  "events": []
 }
