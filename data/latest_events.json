@@ -1,6 +1,6 @@
 {
-  "run_at_iso": "2025-09-02T12:10:32.739Z",
-  "run_at_it": "02/09/2025 14:10:32 Europe/Rome",
+  "run_at_iso": "2025-09-02T12:20:38.879Z",
+  "run_at_it": "02/09/2025 14:20:38 Europe/Rome",
   "timezone": "Europe/Rome",
   "locale": "it-IT",
   "contest": {
@@ -11,15 +11,6 @@
     "timezone": "Europe/Rome",
     "status": "running"
   },
-  "events_count": 1,
-  "events": [
-    {
-      "type": "BUY",
-      "wallet": "92ps...XtYW",
-      "amount": 33375.863085,
-      "tx": "3LJSiNx5DEXUWriG5Qi4zpCdWCfaqXJEnjsj6vMBEF3qXePJrFFNFKdUM1MyU4hXCnuHwtQ2bZkuBG4kYPywGaoy",
-      "ts_iso": "2025-09-02T12:11:19.000Z",
-      "ts_it": "02/09/2025 14:11:19 Europe/Rome"
-    }
-  ]
+  "events_count": 0,
+  "events": []
 }
