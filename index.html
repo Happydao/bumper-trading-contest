@@ -9,10 +9,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0a0609; --panel:#130e12; --muted:#9a90a4; --fg:#f2eaf2;
-      --accent:#ff375f; --accent2:#ff7a59; --buy:#20e3a2; --sell:#ff5d7a;
+      --bg:#0a0609;
+      --panel:#130e12;
+      --muted:#9a90a4;
+      --fg:#f2eaf2;
+      --accent:#ff375f;
+      --accent2:#ff7a59;
+      --buy:#20e3a2;
+      --sell:#ff5d7a;
       --gold:#ffd166; --silver:#cbd5e1; --bronze:#f4a261;
+
+      /* === TWEAK ZONE (EDIT HERE) === */
+      /* Trasparenza/blur delle card sovrapposte alla foto */
+      --overlay-bg: rgba(20, 11, 15, 0.22);     /* aumenta l'ultimo valore (0→1) per meno trasparente, diminuisci per più trasparente */
+      --overlay-blur: 8px;                      /* intensità blur sotto le card */
+      --overlay-border: rgba(255,55,95,.28);    /* bordo delle card overlay */
+      --overlay-title-color: #ffffff;           /* colore titoli "CONTEST/REFRESH" */
+      --overlay-label-color: #ffffff;           /* etichette + testo piccolo nelle card overlay */
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -20,7 +35,8 @@
       background:
         radial-gradient(1100px 600px at 15% -10%, rgba(255,55,95,.12), transparent 60%),
         radial-gradient(900px 500px at 85% 8%, rgba(255,122,89,.10), transparent 60%),
-        linear-gradient(180deg, rgba(255,55,95,.05), transparent 40%), var(--bg);
+        linear-gradient(180deg, rgba(255,55,95,.05), transparent 40%),
+        var(--bg);
       color:var(--fg);
     }
     a{color:#9bb5ff; text-decoration:none}
@@ -28,62 +44,63 @@
     .wrap{max-width:1200px; margin:0 auto; padding:20px}
 
     header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:8px;}
-    h1{font-size:42px; margin:0; letter-spacing:.2px}
+    h1{font-size:40px; margin:0; letter-spacing:.2px}
     .muted{color:var(--muted)}
     .tzline{margin-top:6px; font-size:13px}
 
     .btn{
       border:1px solid rgba(255,255,255,.08); background:#1a1116; color:#fff;
-      padding:9px 13px; border-radius:12px; font-weight:700; cursor:pointer;
+      padding:10px 14px; border-radius:12px; font-weight:700; cursor:pointer;
       transition: transform .06s ease, box-shadow .15s ease, border-color .2s ease;
     }
     .btn:hover{transform:translateY(-1px); box-shadow:0 8px 26px rgba(0,0,0,.25); border-color:rgba(255,255,255,.18)}
     .pill{padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.08); font-size:12px}
 
-    /* HERO (cover) */
+    /* HERO */
     .hero{
-      position:relative; border-radius:16px; overflow:hidden; margin:10px 0 18px;
-      border:1px solid rgba(255,55,95,.22); background:#140b0f; min-height:360px;
+      position:relative; border-radius:16px; overflow:hidden; margin:14px 0 18px;
+      border:1px solid rgba(255,55,95,.22); background:#140b0f; min-height:320px;
       box-shadow: 0 0 0 1px rgba(255,55,95,.18) inset, 0 14px 40px rgba(255,55,95,.15), 0 10px 30px rgba(0,0,0,.35);
     }
     .hero::before{
       content:""; position:absolute; inset:0;
       background:
-        linear-gradient(180deg, rgba(10,5,7,.55), rgba(10,5,7,.18) 45%, rgba(10,5,7,.04) 85%),
+        linear-gradient(180deg, rgba(10,5,7,.65), rgba(10,5,7,.25) 45%, rgba(10,5,7,.04) 85%),
         url('./bumpertrading.png') center / cover no-repeat;
       filter:saturate(1.05) contrast(1.02) brightness(1.02);
     }
 
-    /* Floating micro-cards pinned to bottom of the hero */
-    .overlay{
-      position:absolute; left:12px; right:12px; bottom:12px; top:auto;
-      display:flex; justify-content:space-between; gap:12px; pointer-events:none;
-    }
+    /* Overlay cards posizionate sopra la foto (in basso) */
     .floater{
-      pointer-events:auto;
-      min-width:260px; max-width:420px;
-      background:rgba(20,12,16,.22);              /* più trasparente */
-      backdrop-filter:saturate(1.05) blur(5px);   /* blur leggero */
-      border:1px solid rgba(255,55,95,.18);
-      border-radius:12px; padding:10px 12px;
-      box-shadow:0 10px 26px rgba(0,0,0,.28), inset 0 0 0 1px rgba(255,55,95,.08);
+      position:absolute; left:14px; right:14px; bottom:14px;
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:12px;
     }
-    .floater h4{
-      margin:0 0 6px 0; font-size:13px; letter-spacing:.3px; text-transform:uppercase; color:#fff;
+    @media (max-width: 900px){ .floater{ grid-template-columns:1fr; } }
+
+    .panel-overlay{
+      background: var(--overlay-bg);
+      backdrop-filter: blur(var(--overlay-blur));
+      -webkit-backdrop-filter: blur(var(--overlay-blur));
+      border:1px solid var(--overlay-border);
+      border-radius:14px; padding:12px 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
-    .kv{display:grid; grid-template-columns: 68px 1fr; gap:4px 8px; font-size:13px}
-    .kv .k{color:var(--muted)}
-    .status{font-weight:800; font-size:13px}
+
+    /* Testi card overlay in bianco (etichette, percentuale, ecc.) */
+    .panel-overlay h4{ margin:0 0 8px 0; font-size:14px; color: var(--overlay-title-color); letter-spacing:.2px }
+    .panel-overlay .kv{display:grid; grid-template-columns:72px 1fr; gap:6px 10px; font-size:13px; margin-bottom:8px}
+    .panel-overlay .kv .k{ color: var(--overlay-label-color); }
+    .panel-overlay .muted{ color: var(--overlay-label-color); }
+    .panel-overlay .barline{ color: var(--overlay-label-color); font-size:12px; display:flex; justify-content:space-between; margin-top:6px }
+    .panel-overlay .bignum{ font-size:18px; font-weight:800; color:#fff }
+
+    .status{font-weight:800}
     .ok{color:var(--buy)} .end{color:var(--sell)} .ns{color:#b7b1c5}
 
-    .bar{height:6px; background:rgba(0,0,0,.22); border:1px solid rgba(255,55,95,.18); border-radius:999px; overflow:hidden; margin-top:6px}
+    .bar{height:8px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.20); border-radius:999px; overflow:hidden}
     .bar > i{display:block; height:100%; background:linear-gradient(90deg, var(--accent), var(--accent2)); width:0%}
-    .barline{display:flex; justify-content:space-between; align-items:center; margin-top:4px; font-size:12px; color:var(--muted)}
 
-    /* Panels below hero */
-    .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
-    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
-
+    /* Pannelli body */
     .panel{
       background: linear-gradient(180deg, rgba(255,255,255,.02), transparent 60%), var(--panel);
       border-radius:16px; padding:14px 16px;
@@ -91,6 +108,9 @@
       box-shadow: 0 0 0 1px rgba(255,55,95,.10) inset, 0 4px 30px rgba(0,0,0,.25);
     }
     .panel h3{margin:0 0 8px 0; font-size:16px; letter-spacing:.2px}
+
+    .grid{display:grid; grid-template-columns: 1.25fr .95fr; gap:16px;}
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
 
     .cards{display:grid; grid-template-columns: repeat(3,1fr); gap:12px; margin-bottom:10px;}
     @media (max-width: 700px){ .cards{ grid-template-columns:1fr; } }
@@ -116,7 +136,6 @@
     .sell{ color:var(--sell); background: rgba(255,93,122,.12); border-color: rgba(255,93,122,.24); }
     .ev .time{ color:var(--muted); font-size:12px; min-width:110px }
     .ev .tx{ margin-left:auto; font-size:12px }
-
     .foot{ margin-top:12px; color:var(--muted); font-size:12px; display:flex; flex-wrap:wrap; gap:8px; align-items:center }
     .sep{ opacity:.22 }
     .small{ font-size:12px }
@@ -125,12 +144,6 @@
     @keyframes spin{ to { transform: rotate(360deg) } }
     .toast{ position: fixed; right: 16px; bottom: 16px; background: #150c10; border:1px solid rgba(255,55,95,.24); padding:10px 12px; border-radius:12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); max-width: 320px; }
     .hidden{ display:none }
-
-    /* mobile overlay stacking */
-    @media (max-width: 900px){
-      .overlay{flex-direction:column; align-items:flex-start}
-      .floater{max-width:calc(100% - 24px)}
-    }
   </style>
 </head>
 <body>
@@ -140,39 +153,39 @@
         <h1>$BUMPER volume trading competiton</h1>
         <div id="tzline" class="tzline muted">Times shown in <strong>Europe/Rome</strong></div>
       </div>
-      <div class="controls" style="display:flex;gap:8px;align-items:center">
+      <div class="controls">
         <button class="btn" id="btn-refresh">Refresh now</button>
         <span class="pill" id="live-pill">Live</span>
       </div>
     </header>
 
-    <!-- HERO with translucent micro-cards pinned to bottom -->
-    <div class="hero" aria-label="Bumper cover image">
-      <div class="overlay">
-        <!-- Contest micro-card -->
-        <div class="floater" style="flex:1">
-          <h4>Contest</h4>
+    <!-- HERO con overlay cards in basso -->
+    <div class="hero" aria-hidden="false">
+      <div class="floater">
+        <!-- Contest -->
+        <section class="panel-overlay">
+          <h4>CONTEST</h4>
           <div class="kv">
-            <div class="k">Start</div>  <div id="c-start" class="muted">—</div>
-            <div class="k">End</div>    <div id="c-end" class="muted">—</div>
-            <div class="k">Status</div> <div id="c-status" class="status ns">—</div>
+            <div class="k">Start</div>  <div id="c-start" class="bignum muted">—</div>
+            <div class="k">End</div>    <div id="c-end" class="bignum muted">—</div>
+            <div class="k">Status</div> <div id="c-status" class="bignum muted">—</div>
           </div>
           <div class="bar"><i id="c-bar" style="width:0%"></i></div>
           <div class="barline">
             <span id="c-percent">0%</span>
             <span id="c-left">—</span>
           </div>
-        </div>
+        </section>
 
-        <!-- Refresh micro-card -->
-        <div class="floater" style="width:320px">
-          <h4>Refresh</h4>
+        <!-- Refresh -->
+        <section class="panel-overlay">
+          <h4>REFRESH</h4>
           <div class="kv">
-            <div class="k">Next</div> <div id="next-ref">—</div>
-            <div class="k">Updated</div> <div id="last-upd">—</div>
+            <div class="k">Next</div>    <div class="bignum" id="next-ref">—</div>
+            <div class="k">Updated</div> <div class="bignum" id="last-upd">—</div>
+            <div class="k">Live</div>    <div id="status-pill"><span class="spinner"></span> Loading…</div>
           </div>
-          <div id="status-pill" class="small"><span class="spinner"></span> Loading…</div>
-        </div>
+        </section>
       </div>
     </div>
 
@@ -244,7 +257,7 @@
     const elFeed = document.getElementById('feed');
     const btnRefresh = document.getElementById('btn-refresh');
 
-    // contest overlay elements
+    // contest card elements
     const elCStart = document.getElementById('c-start');
     const elCEnd = document.getElementById('c-end');
     const elCStatus = document.getElementById('c-status');
@@ -266,7 +279,7 @@
       const m = Math.round(sec/60); if (m < 60) return `${m}m ago`;
       const h = Math.round(m/60); return `${h}h ago`;
     };
-    const mask = (addr) => addr; // backend already masked
+    const mask = (addr) => addr; // backend già maschera
     const linkSolscan = (tx)=> `https://solscan.io/tx/${tx}`;
     const itDateTime = (iso, tz) => new Date(iso).toLocaleString('it-IT', { timeZone: tz, hour12:false });
 
@@ -291,6 +304,7 @@
     function startCountdown(){
       clearInterval(countdownTimer);
       refreshCountdown = REFRESH_SECONDS;
+      elNextRef.textContent = `${refreshCountdown}s`;
       countdownTimer = setInterval(()=>{
         refreshCountdown--;
         elNextRef.textContent = `${refreshCountdown}s`;
@@ -327,10 +341,10 @@
 
     function renderContest(meta, lastRunIso){
       const tz = (meta && meta.timezone) || 'Europe/Rome';
-      elTZLine.innerHTML = `Times shown in <strong>${tz}</strong>`;
+      document.getElementById('tzline').innerHTML = `Times shown in <strong>${tz}</strong>`;
       if (!meta || !meta.start_iso || !meta.end_iso){
         elCStart.textContent = '—'; elCEnd.textContent = '—';
-        elCStatus.textContent = '—'; elCStatus.className = 'status ns';
+        elCStatus.textContent = '—'; elCStatus.className = 'bignum muted';
         elCBar.style.width = '0%'; elCPercent.textContent = '0%'; elCLeft.textContent = '—';
         elLastUpd.textContent = lastRunIso ? itDateTime(lastRunIso, tz) : '—';
         return;
@@ -343,7 +357,7 @@
       elCPercent.textContent = `${Math.round(p.percent)}%`;
       elCLeft.textContent = p.label;
       elCStatus.textContent = p.status==='ok' ? 'Running' : (p.status==='end' ? 'Ended' : 'Not started');
-      elCStatus.className = `status ${p.status}`;
+      elCStatus.className = `bignum status ${p.status}`;
       elLastUpd.textContent = lastRunIso ? itDateTime(lastRunIso, tz) : '—';
     }
 
@@ -439,7 +453,11 @@
     async function refreshNow(){
       try{
         setStatus('Loading…', true);
-        const [lb, ev] = await Promise.all([ fetchJSON('leaderboard'), fetchJSON('latest_events') ]);
+        const [lb, ev] = await Promise.all([
+          fetchJSON('leaderboard'),
+          fetchJSON('latest_events')
+        ]);
+        // contest meta: prefer latest_events.json
         const contest = ev.contest || lb.contest || null;
         renderContest(contest, ev.run_at_iso || lb.updated_at || null);
         renderLeaderboard(lb);
@@ -456,7 +474,7 @@
       }
     }
 
-    document.getElementById('btn-refresh').addEventListener('click', refreshNow);
+    btnRefresh.addEventListener('click', refreshNow);
 
     // boot
     (async function(){
@@ -467,3 +485,4 @@
   </script>
 </body>
 </html>
+
